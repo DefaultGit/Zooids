@@ -1,0 +1,11 @@
+Resoultions Options:
+1280x800, 1024x768, 1024x640, 912x1140, 800x600, 800x500, 640x480 at up to 120 Hz
+But there are only 912x1140 pixels in the Light Engine
+
+Max Total LED Current:
+4.3 Amps (?)
+
+Send patterns via DVI to mini-HDMI in Pattern mode
+
+Deactivate Auto Update Status
+

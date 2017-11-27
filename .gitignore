@@ -1,3 +1,5 @@
 # exclude SwarmUI's GitHub
 SwarmUI/
 GitIgnore/
+~$*.docx
+~$*.xlsx
