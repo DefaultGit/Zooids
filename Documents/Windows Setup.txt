@@ -1,0 +1,7 @@
+-Remove Taskbar:
+	-Right click Taskbar, open Taskbar Settings
+	-Under Multiple Displays, turn 'Show Taskbar on all Displays' off
+-Black Background(BG), at least for the 3rd Monitor
+	-Make a black picture (912x1140), right click on it and 'set [it] as the desktop background'
+	-Right click desktop and open 'Personalize'
+	-Under 'Choose your picture', choose the desired background for each monitor, but set the BG for the Procejtor to the black picture

@@ -17,3 +17,9 @@ Sequence Settings: Pattern Source: Video port
 The total number of patterns multiplied by the pattern exposure must be less than or equal to the VSYNC period
 
 "Frame Index" can be left alone. The patterns will be pulled from the specified bit-plane(s) from each transmitted video frame sequentially
+
+
+Use Browser + JavaScript
+or MatLab (is it going to be fast enough?)
+
+But patterns together into video file or show picture by picture?
