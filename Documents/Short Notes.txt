@@ -19,7 +19,7 @@ The total number of patterns multiplied by the pattern exposure must be less tha
 "Frame Index" can be left alone. The patterns will be pulled from the specified bit-plane(s) from each transmitted video frame sequentially
 
 
-Use Browser + JavaScript
+Use Browser + JavaScript + OpenCV +cpp
 or MatLab (is it going to be fast enough?)
 
 But patterns together into video file or show picture by picture?
