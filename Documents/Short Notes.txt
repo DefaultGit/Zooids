@@ -22,4 +22,15 @@ The total number of patterns multiplied by the pattern exposure must be less tha
 Use Browser + JavaScript + OpenCV +cpp
 or MatLab (is it going to be fast enough?)
 
-But patterns together into video file or show picture by picture?
+But patterns together into video file or show picture by picture? Or Gif?
+
+Userinput?
+
+LED only on, when color in Pattern?
+
+912 Pixels on long edge and 1140 Pixel on short edge (https://e2e.ti.com/support/dlp__mems_micro-electro-mechanical_systems/advanced_light_control/f/924/t/636369?tisearch=e2e-sitesearch&keymatch=lightcrafter%204500%20120hz)
+
+Pattern Mode: 8-Bit images
+8Bit depth might be faster? 120 Hz 256 Bitper pixel 	=30kbps
+im vergleich 			4225 Hz 1 Bit		=4kbps
+BUT with 8 bit depth zeros arent readable (?)
