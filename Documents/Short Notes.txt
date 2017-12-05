@@ -34,3 +34,5 @@ Pattern Mode: 8-Bit images
 8Bit depth might be faster? 120 Hz 256 Bitper pixel 	=30kbps
 im vergleich 			4225 Hz 1 Bit		=4kbps
 BUT with 8 bit depth zeros arent readable (?)
+
+Last Pattern always brightest without clear dmd after exposure
