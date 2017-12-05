@@ -36,3 +36,5 @@ im vergleich 			4225 Hz 1 Bit		=4kbps
 BUT with 8 bit depth zeros arent readable (?)
 
 Last Pattern always brightest without clear dmd after exposure
+
+probably NOT gifs

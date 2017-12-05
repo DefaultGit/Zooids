@@ -1,0 +1,25 @@
+Record Signal
+Filter Signal
+->Software/Digital Filter
+
+0) Understanding Pattern (+generation)
+
+1) Noise analysis
+Background Radiation
+IR Signal from heat source (Human, Projector, PC, Sun)
+Sunlight
+Cold Cathode Tubes Light
+White Noise
+
+2) Signal Analysis
+Peak to Peak Voltage
+Impulse Duration
+Number of Impulses
+Overlaping impulses
+DC Voltage/mean voltage
+
+3) Area of Effect
+1 Pixel
+Whole Photodide?
+
+4) Pattern Exposure vs Period
