@@ -23,3 +23,7 @@ DC Voltage/mean voltage
 Whole Photodide?
 
 4) Pattern Exposure vs Period
+
+5) What do I want to send
+
+6) How do I want to send it

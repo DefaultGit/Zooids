@@ -1,19 +1,19 @@
 %{
-|-----Width-----|
+|------912------|                   |--------912--------|
 
+* * * * * * * * *     -             
+*       *       *     |             * * * * * * * * * * *   -
+*       *       *     |             *         *         *   |
+*       *       *     |             *         *         *   |
+*       *       *     |             *         *         *   |
+*      DLP      *    1140    ---->  *         *         *  1140 = Height
+*       *       *     |             *         *         *   |
+*       *       *     |             *         *         *   |
+*       *       *     |             *         *         *   |
+*       *       *     |             * * * * * * * * * * *   -
 * * * * * * * * *     -
-*               *     |
-*               *     |
-*               *     |
-*               *     |
-*      DLP      *   Height
-*               *     |
-*               *     |
-*               *     |
-*               *     |
-* * * * * * * * *     -
 
-
+        PC                                   DLP
 %}
 
 clear all
@@ -32,15 +32,21 @@ bmp = imread('bmp.bmp');
 %}
 
 for i = 1:(HEIGHT)
-    for j = 1:(WIDTH/3)
+    for j = 1:(WIDTH/4)
+        matrix(i,j,1)=uint8(i/4);   
+        matrix(i,j,2)=uint8(i/4);   
+        matrix(i,j,3)=uint8(i/4); 
+    end
+    
+    for j = (1+WIDTH/4):(WIDTH*2/4)
         matrix(i,j,1)=uint8(i/4);
     end
     
-    for j = (1+WIDTH/3):(WIDTH*2/3)
+    for j = (1+2*WIDTH/4):(WIDTH*3/4)
         matrix(i,j,2)=uint8(i/4);
     end
     
-    for j = (1+2*WIDTH/3):(WIDTH)
+    for j = (1+3*WIDTH/4):(WIDTH)  
         matrix(i,j,3)=uint8(i/4);   
     end
 end
@@ -59,4 +65,4 @@ l = figure;
 image(leaf);
 %}
 
-imwrite(matrix,'gradient.bmp')
+imwrite(matrix,'Grad.bmp')
