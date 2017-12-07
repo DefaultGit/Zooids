@@ -7,14 +7,14 @@ Do this "repeat" times.
 %}
 
 %Var declaration
-pic = imread('double.bmp');
+pic = imread('Pictures\double.bmp');
 repeat = 7
 
 %Call function repeat times and Save the resultin Image as "sized.bmp"
 for i = 1:repeat
     pic=double(pic);
 end
-imwrite(pic,'doubleBig.bmp');
+imwrite(pic,'Pictures\doubleBig.bmp');
 
 %Function to make a bitmap bigger by copying each element to 3 neighbouring
 %pixels (East, South and diagonally South East pixel)

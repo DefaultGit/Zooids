@@ -26,4 +26,4 @@ pic(:,:,1) = g;
 pic(:,:,2) = r;
 pic(:,:,3) = b;
 
-imwrite(pic,'double.bmp');
+imwrite(pic,'Pictures\double.bmp');

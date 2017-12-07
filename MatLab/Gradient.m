@@ -65,4 +65,4 @@ l = figure;
 image(leaf);
 %}
 
-imwrite(matrix,'Grad.bmp')
+imwrite(matrix,'Pictures\Grad.bmp')
