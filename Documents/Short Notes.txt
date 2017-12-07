@@ -1,43 +1,38 @@
 Resoultions Options (in Pattern Mode):
-912 x 1140
+912 (Horizontal/long edge) x 1140 (Vertical/short edge)
 
 24 Bit RGB Pattern Sequence streamed via DVI to mini-HDMI:
 1-8 Bit Bitmap Images
 
 Deactivate Auto Update Status
 
-Suggested LED current Setting by Datasheet: 
-104,135,130
-
-Max Total LED Current:
-4.3 Amps (?)
-
-Sequence Settings: Pattern Source: Video port
+Sequence Settings: Pattern Source: 	Video port for DVI Stream
+					Flash else
 
 The total number of patterns multiplied by the pattern exposure must be less than or equal to the VSYNC period
 
-"Frame Index" can be left alone. The patterns will be pulled from the specified bit-plane(s) from each transmitted video frame sequentially
+Stream Data:
+	Browser
+	Java
+	JavaScript
+	Cpp/OpenCV
+	MatLab
+	...
 
+Stream Format
+	Video
+	Gif	(Too slow, not enough bit depth)
+	Pictures
+	...
 
-Use Browser + JavaScript + OpenCV +cpp
-or MatLab (is it going to be fast enough?)
+Userinput
+	Synchronisation
+	How to receive
 
-But patterns together into video file or show picture by picture? Or Gif?
-
-Userinput?
-
-LED only on, when color in Pattern?
-
-912 Pixels on long edge and 1140 Pixel on short edge (https://e2e.ti.com/support/dlp__mems_micro-electro-mechanical_systems/advanced_light_control/f/924/t/636369?tisearch=e2e-sitesearch&keymatch=lightcrafter%204500%20120hz)
-
-Pattern Mode: 8-Bit images
 8Bit depth might be faster? 120 Hz 256 Bitper pixel 	=30kbps
 im vergleich 			4225 Hz 1 Bit		=4kbps
 BUT with 8 bit depth zeros arent readable (?)
 
 Last Pattern always brightest without clear dmd after exposure
 
-probably NOT gifs
-
-
-If you have issues with uploading the firmware, (uninstall the DLP drivers and) go into video mode, appy default solution so the buffer freeze goes away and flash again
+Issues while uploading firmware: (uninstall the DLP drivers and) go into video mode, appy default solution so the buffer freeze goes away and flash again
