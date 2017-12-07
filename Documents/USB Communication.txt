@@ -1,0 +1,7 @@
+USB 1.1 Human interface device (HID)
+
+The USB commands are variable length data packets that are sent with the least significant byte first.
+
+DVI:
+912*1140 pixel * 24-Bit bitmap * 120 Hz (?)
+=1,039,680 * 3 Byte * 120 = 374,284,800 Byte / sec = 374mb/s
