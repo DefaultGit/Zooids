@@ -1,0 +1,24 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [Zooid.PrjPcb]
+   Generated File[ZooidPCB.GTL]
+   Generated File[ZooidPCB.GP1]
+   Generated File[ZooidPCB.GP2]
+   Generated File[ZooidPCB.GBL]
+   Generated File[ZooidPCB.GTO]
+   Generated File[ZooidPCB.GTP]
+   Generated File[ZooidPCB.GTS]
+   Generated File[ZooidPCB.GBS]
+   Generated File[ZooidPCB.GBP]
+   Generated File[ZooidPCB.GBO]
+   Generated File[ZooidPCB.GKO]
+   Generated File[ZooidPCB.GM2]
+   Generated File[ZooidPCB.RUL]
+   Generated File[ZooidPCB.EXTREP]
+   Generated File[ZooidPCB.REP]
+
+
+Files Generated   : 15
+Documents Printed : 0
+
+Finished Output Generation At 6:43:51 PM On 12/13/2017
