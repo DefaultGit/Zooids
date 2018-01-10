@@ -1,5 +1,7 @@
+%%
 clear
 
+%%
 ProjectorAR=sym(9855/6161.4);
 %Aspect Ratio (Width/Heigth) of projected image is about 0.63 by 1
 %or about 1 by 1.59
@@ -21,11 +23,15 @@ A = imread('A.png');
 B = imread('B.png');
 C = imread('C.png');
 
-vid(:,:,:,1) = A;
-vid(:,:,:,2) = B;
-vid(:,:,:,3) = C;
+for i = 1:20*3
+    vid(:,:,:,3*(i-1)+1) = A;
+    vid(:,:,:,3*(i-1)+2) = B;
+    vid(:,:,:,3*(i-1)+3) = C;
+end
 
 v = VideoWriter('newFile.avi','Uncompressed AVI');
+v.FrameRate = 60
+
 
 open(v)
 writeVideo(v,vid)

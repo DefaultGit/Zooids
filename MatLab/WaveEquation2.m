@@ -1,7 +1,16 @@
 %% Clear and close all
 %close all;
-clearvars -except outputFigure inputFigure
+clearvars -except outputFigure inputFigure imageFigure
 
+
+%%%%%%%%%%%%%%%%%%%%%
+%COLOR MAPS
+%
+%   R   G   B
+%       Low
+%        |
+%       High
+%%%%%%%%%%%%%%%%%%%%%
 %% Declare Simbolic Variables %%
 syms x y t;
 syms mag pwrDec pwrDecX pwrDecY;
@@ -16,16 +25,17 @@ syms offSet offSetX offSetY;
 
 %% Variables
 interval = [0 911 0 1139];
-colorBits=2; %max 6 (2^6=64)
+colorBits=8; %max 6 (2^6=64)
 maxMag = 2^colorBits-1;
 newColormap = zeros(2^colorBits, 3);
 %Colormap usually has 64 rows
 
 for i = 1:1:2^colorBits
     %cmap = flipud(winter(64));
-    cmap = flipud(hot(64));
-    newColormap(i,:) = cmap((i-1)*64/(2^colorBits)+1,:);
+    cmap = flipud(hot(2*2^colorBits));
+    newColormap(i,:) = cmap((i-1)*2*2^colorBits/(2^colorBits)+1,:);
 end
+% cmap = newColormap;
 
 %% Declare Fuctions %%
 twoDimWave (x   , t, mag, pwrDec          , drDec         , tDec        , offSet)            =  mag*0.5*exp(-pwrDec*t)*(exp(-(1/drDec)*(x-offSet+tDec*t)^2)+exp(-(1/drDec)*(x-offSet-tDec*t)^2));                       %(x, t, mag, pwrDec, drDec, tDec, offSet)
@@ -50,11 +60,9 @@ catch
 end
 
 outputFigure.Units = 'normalized';
-outputFigure.OuterPosition(1) = 0
-%40 pixel taskbar
-%8 pixel lower window bar
-%84 pixel upper window bar
-outputFigure.OuterPosition(2) = 0 + (40)/1080
+outputFigure.OuterPosition(1) = 0;
+%40 pixel taskbar, 8 pixel lower window bar, 84 pixel upper window bar
+outputFigure.OuterPosition(2) = 0 + (40)/1080;
 outputFigure.Units = 'pixels';
 %axOutput = axes('Position',[0.65 0.65 0.28 0.28]);
 %fsurf(sym(0),[0 912 0 1140],'MeshDensity',1);
@@ -87,8 +95,8 @@ end
 %inputFigure.Position = [1200 400 (570+70) (456)];
 
 inputFigure.Units = 'normalized';
-inputFigure.OuterPosition(1) = 0
-inputFigure.OuterPosition(2) = 0 + (40)/1080
+inputFigure.OuterPosition(1) = 0;
+inputFigure.OuterPosition(2) = 0 + (40)/1080;
 inputFigure.Units = 'pixels';
 inputFigure.Position(3) = 1140+230;
 inputFigure.OuterPosition(4) = 1080-40;
@@ -107,6 +115,10 @@ outputFigure.Name = 'Output Figure';
 view([-90,90]);
 set (axOutput,'Ydir','reverse');
 
+cmapOut = colormap(outputFigure,newColormap);
+caxOut = caxis(axOutput);
+caxOut = [0 maxMag];
+
 %% Axis Input
 figure(inputFigure)
 axInput = gca; 
@@ -120,6 +132,10 @@ inputFigure.Name = 'Input Figure';
 view([-90,90]) %x-y plane but turned by -90 degree
 set(axInput,'Ydir','reverse')
 
+cmapIn = colormap(inputFigure,newColormap)
+caxIn = caxis(axInput);
+caxIn = [0 maxMag];
+
 %% Axes Both
 axOutput.Units = 'pixels';
 axInput.Units  = 'pixels';
@@ -130,7 +146,7 @@ axInput.DataAspectRatio  = [1,               1,                   5*maxMag/1140]
 
 %pause(1)
 axOutput.Position(1) = 1;
-axOutput.Position(2) = 1;
+axOutput.Position(2) = 50;
 % axOutput.Position(1) = 150;
 % axOutput.Position(2) = 50;
 axOutput.Position(3) = 1140;
@@ -153,8 +169,8 @@ outputFigure.CurrentAxes.YAxis.Limits = [0 1139];
 %% Plot Input
 figure(inputFigure)
 hold on
-plot3(0:1:911,0:1:911,ones(1,911+1).*maxMag); %Diagonal Line with slope 1 (dY/dX)
-
+%plot3(0:1:911,0:1:911,ones(1,911+1).*maxMag); %Diagonal Line with slope 1 (dY/dX)
+scatter3(0:1:911, 0:1:911, (0:maxMag/(911):maxMag),5,(0:maxMag/(911):maxMag));%ones(1,911+1).*maxMag); %Diagonal Line with slope 1 (dY/dX)
 %FourHills 1
 t_FH1 = 0; 
 mag_FH1 = maxMag; 
@@ -184,26 +200,25 @@ hold on;
 scatter3(0:1:911, 0:1:911, (0:maxMag/(911):maxMag),5,(0:maxMag/(911):maxMag));%ones(1,911+1).*maxMag); %Diagonal Line with slope 1 (dY/dX)
 %GETS A NEW COLOR EVERY TIME THIS IS RUN
 
-colormap(outputFigure,newColormap)
-colormap(inputFigure,newColormap)
-caxis([0 maxMag])
-
 fsurf(eqn,[0 911 0 1139]);
+
+%% Make Image
 outputImage = zeros(912, 1140);
 
-% for i = 1:1:912
-%     for j = 1:1:1140
-%         value=eqn;
-%         value=subs(value,x,i);
-%         value=subs(value,y,j);
-%         test=j
-%         value=uint8(value);
-%         outputImage(i,j)=value;
-%     end
-%     progress=i
-% end
+FUN = matlabFunction(eqn);
+for i = 1:1:912
+    for j = 1:1:1140
+        outputImage(i,j)=feval(FUN,i,j)/maxMag;
+    end
+end
+% x0 = 1:10000;               % Assume that we want to evaluate the function in these points
+% FUN = matlabFunction(fun);  % This creates a function handle
+% y = feval(FUN, x0);         % Evaluates the new function handle at the specified points
 %fcontour(eqn)
 
+% function out = discretize(in)
+%     out = uint8(in);
+% end
 
 %meshc
 %FaceLighting
@@ -213,7 +228,8 @@ outputImage = zeros(912, 1140);
 % colormap default
 colormap(outputFigure,newColormap)
 colormap(inputFigure,newColormap)
-caxis([0 maxMag])
+caxis(axInput,[0 maxMag])
+caxis(axInput,[0 maxMag])
 
 %ax.Units='normalized'
 
@@ -226,9 +242,38 @@ outputFigure.Units = 'normalized';
 %ax.Units='centimeters';
 %ax.Position=[0 0 3*5.70 3*4.56];
 
-f=getframe(gcf);
-new=f.cdata;
-imwrite(new,'new.jpg','JPEG');
+%% Image Figure
+% f=getframe(gcf);
+% new=f.cdata;
+% imwrite(new,'new.jpg','JPEG');
+
+try
+    if (~ishghandle(imageFigure))
+        imageFigure = figure;
+    end
+catch
+    imageFigure = figure;
+end
+figure(imageFigure);
+imshow(outputImage,newColormap);
+axImage = gca;
+colorbar;
+
+%cla
+%drawnow
+
+%% Axes Image
+figure(imageFigure);
+axImage = gca;
+imageFigure.Name = 'Image Figure';
+imagesc(outputImage)
+cmapIm = colormap(imageFigure, newColormap);
+caxis(gca,[0 maxMag]);
+set(gca, 'CLim', [0 255])
+
+
+
+
 
 %fsurf(sym(mag),[0 912 0 1140]);
 
@@ -239,4 +284,5 @@ imwrite(new,'new.jpg','JPEG');
 %fplot(twoDimWave(x,0.5,2,10,2));
 %f3 = figure;
 %f3.Position = [f3.Position(1)+f3.Position(3) f3.Position(2) f3.Position(3) f3.Position(4)]
-%fplot(twoDimWave(x,1,2,10,2));
+%
+fplot(twoDimWave(x,1,2,10,2));
