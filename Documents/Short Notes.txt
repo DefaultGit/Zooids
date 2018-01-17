@@ -3,6 +3,8 @@ Resoultions Options (in Pattern Mode):
 
 24 Bit RGB Pattern Sequence streamed via DVI to mini-HDMI:
 1-8 Bit Bitmap Images
+Pattern Rate of 2880 Hz from RGB Interface
+		4220 Hz from internal memory, limited to 48 Binary Patterns
 
 Deactivate Auto Update Status
 

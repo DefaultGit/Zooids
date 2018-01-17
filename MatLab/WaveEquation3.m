@@ -171,6 +171,11 @@ end
 
 function setFigure(fig)
     set(gca,'NextPlot','replacechildren');
+    %%%
+    %plot(peaks);
+    %xlabel('X'); ylabel('Y'); zlabel('Z');
+    %5hold on
+    %cla, keeps formating
     figure(fig);
     fig.Units = 'normalized';
     fig.OuterPosition(1) = 0;
@@ -194,3 +199,14 @@ function setAxis(fig, cmap, scale)
     fig.CurrentAxes.YAxis.Limits = [0 1139];
     fig.CurrentAxes.ZAxis.Limits = scale;
 end
+
+%caxis([0,3])
+%cmap([0,0,0; 1,0,0; 0,1,0; 0,0,1; 1,1,1])
+%pic = [0;1;2;3;4]
+%-> 0 black; 1 red; 2 blue; 3, 4, ... white
+
+% CC = bwconncomp(BW);
+% L = labelmatrix(CC);
+% RGB = label2rgb(L);
+
+%imagesc
