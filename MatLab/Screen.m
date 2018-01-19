@@ -67,11 +67,11 @@ scrnPixelHeight = screenHeight / scrnNumOfPixel(HEIGHT);
 % close(v);
 
 %% ~~~~~~~~~~ Display results ~~~~~~~~~~ %%
-disp("Width x Height of projected image: " + num2str(double(projectorWidth)) + " meter by " + num2str(double(projectorHeight)) + " meter");
-disp("Width x Height of " + screenDiagInch + """ TV: " + num2str(double(screenWidth)) + " meter by " + num2str(double(screenHeight)) + " meter");
-disp("Minimum TV diagonal: " + num2str(double(minScreenDiagInch)) + " inch (" + num2str(double(minScreenDiag)) + " meter)");
-disp("Pixel size of projector (w x h): " + num2str(double(prjPixelWidth)*1000) + " mm by " + num2str(double(prjPixelHeight)*1000) + " mm")
-disp("Pixel size of " + screenDiagInch + """ TV (w x h): " + num2str(double(scrnPixelWidth)*1000) + " mm by " + num2str(double(scrnPixelHeight)*1000) + " mm");
+%disp('Width x Height of projected image: ' + num2str(double(projectorWidth)) + ' meter by ' + num2str(double(projectorHeight)) + ' meter');
+%disp('Width x Height of ' + screenDiagInch + ''' TV: ' + num2str(double(screenWidth)) + ' meter by ' + num2str(double(screenHeight)) + ' meter');
+%disp('Minimum TV diagonal: ' + num2str(double(minScreenDiagInch)) + ' inch (' + num2str(double(minScreenDiag)) + ' meter)');
+%disp('Pixel size of projector (w x h): ' + num2str(double(prjPixelWidth)*1000) + ' mm by ' + num2str(double(prjPixelHeight)*1000) + ' mm')
+%disp('Pixel size of ' + screenDiagInch + ''' TV (w x h): ' + num2str(double(scrnPixelWidth)*1000) + ' mm by ' + num2str(double(scrnPixelHeight)*1000) + ' mm');
 
 %% ~~~~~~~~~~ Convert to double for faster calculation ~~~~~~~~~~ %%
 scrnPixelWidth = double (scrnPixelWidth)
@@ -82,67 +82,40 @@ prjPixelWidth = double (prjPixelWidth)
 prjPixelHeight = double (prjPixelHeight)
 
 %% ~~~~~~~~~~ Map Input to Output ~~~~~~~~~~ %%
-%%%%%%%%%%%%TEMP%%%%%%%%%%%%%%%%%%
-scale = 1;
-
-prjNumOfPixel = prjNumOfPixel / scale;
-scrnNumOfPixel = scrnNumOfPixel / scale;
-prjPixelWidth = prjPixelWidth * scale;
-prjPixelHeight = prjPixelHeight * scale;
-scrnPixelHeight = scrnPixelHeight * scale;
-scrnPixelWidth = scrnPixelWidth * scale;
-projectorWidth = projectorWidth / scale;
-projectorHeight = projectorHeight / scale;
-
-%%% ~~~~~~~~~~ Display wrong dimensions ~~~~~~~~~~ %%
-disp("Width x Height of projected image: " + num2str(double(projectorWidth)) + " meter by " + num2str(double(projectorHeight)) + " meter");
-disp("Width x Height of " + screenDiagInch + """ TV: " + num2str(double(screenWidth)) + " meter by " + num2str(double(screenHeight)) + " meter");
-disp("Minimum TV diagonal: " + num2str(double(minScreenDiagInch)) + " inch (" + num2str(double(minScreenDiag)) + " meter)");
-disp("Pixel size of projector (w x h): " + num2str(double(prjPixelWidth)*1000) + " mm by " + num2str(double(prjPixelHeight)*1000) + " mm")
-disp("Pixel size of " + screenDiagInch + """ TV (w x h): " + num2str(double(scrnPixelWidth)*1000) + " mm by " + num2str(double(scrnPixelHeight)*1000) + " mm");
-
-
-% if(true)
-%     disp(1);
-% elseif(true)
-%     disp(2);
-% else
-%     disp(3);
-% end
-
-%%%%%%%%%%%%TEMP%%%%%%%%%%%%%%%%%%
-
-
 %input = rand(prjNumOfPixel(2), prjNumOfPixel(1)); % resolution of projector
-input = imread('test.png');
-output = zeros(scrnNumOfPixel(2),scrnNumOfPixel(1),3);
+input = (imread('test.png'));
+output = uint8(zeros(scrnNumOfPixel(HEIGHT),scrnNumOfPixel(WIDTH),3));
 
-x1=1;
-y2=1;
+xPrj=1;
+yPrj=1;
 
 inFig=figure;
-imshow(input);
+imagesc(input);
+
+screenOffsetX = (scrnNumOfPixel(WIDTH) - ceil(projectorWidth/scrnPixelWidth))/2;
+screenOffsetY = (scrnNumOfPixel(HEIGHT) - ceil(projectorHeight/scrnPixelHeight))/2;
 
 outFig = figure;
-imshow(output);
+imagesc(output);
 
 % ASSUMES THAT THE TV PIXELS ARE ALAYS SMALLER THEN THE PROJECTOR PIXELS
-for yTV = 1:1:(scrnNumOfPixel(2))
-    if (((yTV - 0.5) * scrnPixelHeight) > projectorHeight);
+for yTV = (screenOffsetY + 1):1:(scrnNumOfPixel(HEIGHT))
+    if (((yTV - 0.5 - screenOffsetY) * scrnPixelHeight) > projectorHeight);
         output(yTV,:,:)=0;
     else
-        y2 = ceil(((yTV -0.5)*scrnPixelHeight) / prjPixelHeight);
-        for xTV = 1:1:(scrnNumOfPixel(1))
-            if (((xTV - 0.5) * scrnPixelWidth) > projectorWidth);
+        yPrj = ceil(((yTV -0.5 - screenOffsetY)*scrnPixelHeight) / prjPixelHeight);
+        for xTV = (screenOffsetX + 1):1:(scrnNumOfPixel(WIDTH))
+            if (((xTV - 0.5 - screenOffsetX) * scrnPixelWidth) > projectorWidth);
                 output(yTV,xTV,:) = 0;
             else
-                x2 = ceil(((xTV - 0.5) * scrnPixelWidth)/prjPixelWidth);
-                output(yTV,xTV,:) = input(y2, x2,:);
+                xPrj = ceil(((xTV - 0.5 - screenOffsetX) * scrnPixelWidth)/prjPixelWidth);
+                output(yTV,xTV,:) = input(yPrj, xPrj,:);
             end
         end
     end
 end
-imshow(output);
+
+imagesc(output);
 
 %% ~~~~~~~~~ Functions ~~~~~~~~~~ %%
 function inch = mToInch(meter)
