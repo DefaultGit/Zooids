@@ -1,5 +1,6 @@
 %%
 clear
+close all
 
 %% Notes &&
 %Most vars are symbolic
@@ -112,8 +113,9 @@ disp("Pixel size of " + screenDiagInch + """ TV (w x h): " + num2str(double(scrn
 %%%%%%%%%%%%TEMP%%%%%%%%%%%%%%%%%%
 
 
-input = rand(prjNumOfPixel(2), prjNumOfPixel(1)); % resolution of projector
-output = zeros(scrnNumOfPixel(2),scrnNumOfPixel(1));
+%input = rand(prjNumOfPixel(2), prjNumOfPixel(1)); % resolution of projector
+input = imread('test.png');
+output = zeros(scrnNumOfPixel(2),scrnNumOfPixel(1),3);
 
 x1=1;
 y2=1;
@@ -126,27 +128,20 @@ imshow(output);
 
 % ASSUMES THAT THE TV PIXELS ARE ALAYS SMALLER THEN THE PROJECTOR PIXELS
 for yTV = 1:1:(scrnNumOfPixel(2))
-    if ((yTV * scrnPixelHeight) > projectorHeight)
-        output(yTV,:)=0;
-    elseif (((yTV - 0.5) * scrnPixelHeight) >= (y2 * prjPixelHeight))
+    if (((yTV - 0.5) * scrnPixelHeight) > projectorHeight);
+        output(yTV,:,:)=0;
+    else
+        y2 = ceil(((yTV -0.5)*scrnPixelHeight) / prjPixelHeight);
         for xTV = 1:1:(scrnNumOfPixel(1))
-            if ((xTV * scrnPixelWidth) > projectorWidth)
-                output(yTV,xTV) = 0;
-            elseif ((xTV * scrnPixelWidth) >= (x2 * prjPixelWidth)) 
-                x2 = x2 + 1;
-%             elseif 
-%                 y2 = y2 + 1;
+            if (((xTV - 0.5) * scrnPixelWidth) > projectorWidth);
+                output(yTV,xTV,:) = 0;
             else
-                output(yTV,xTV) = input(y2, x2);
+                x2 = ceil(((xTV - 0.5) * scrnPixelWidth)/prjPixelWidth);
+                output(yTV,xTV,:) = input(y2, x2,:);
             end
-            x2
-            y2
         end
     end
-    yTV
 end
-
-outFig = figure;
 imshow(output);
 
 %% ~~~~~~~~~ Functions ~~~~~~~~~~ %%
