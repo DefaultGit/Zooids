@@ -1,0 +1,8 @@
+# exclude SwarmUI's GitHub
+debud/
+Makefile
+Makefile.Debug
+Makefile.Release
+~$*.docx
+~$*.xlsx
+~$*.pptx

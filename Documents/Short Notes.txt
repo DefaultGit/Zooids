@@ -3,8 +3,6 @@ Resoultions Options (in Pattern Mode):
 
 24 Bit RGB Pattern Sequence streamed via DVI to mini-HDMI:
 1-8 Bit Bitmap Images
-Pattern Rate of 2880 Hz from RGB Interface
-		4220 Hz from internal memory, limited to 48 Binary Patterns
 
 Deactivate Auto Update Status
 
@@ -34,6 +32,8 @@ Userinput
 8Bit depth might be faster? 120 Hz 256 Bitper pixel 	=30kbps
 im vergleich 			4225 Hz 1 Bit		=4kbps
 BUT with 8 bit depth zeros arent readable (?)
+
+HID too slow (64KB/sec?)
 
 Last Pattern always brightest without clear dmd after exposure
 
