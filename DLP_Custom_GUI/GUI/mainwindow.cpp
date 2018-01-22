@@ -814,6 +814,139 @@ void MainWindow::on_pushButton_Connect_clicked()
     }
 }
 
+
+void MainWindow::on_pushButton_task1_firmware_clicked()
+{
+    int imageFirmwarePage = 3;
+    int firmwareUploadPage = 2;
+    int customWindowIndex = 5;
+
+    /*
+    ui ->label_task1 ->setText("Button pressed");
+    if (ui->radioButton_SLMode->isDown() == false){
+        ui ->radioButton_SLMode ->click();
+    }
+    */
+
+    //ui ->tabWidget->setCurrentIndex(customWindowIndex);
+
+    QString fileName;
+
+    fileName = "D:/Zooids/DLP_Custom_GUI/GUI/firmware/zooids_firmware.bin";
+
+    ui -> label_task1_firmware ->setText(fileName);
+
+    ui->pushButton_FWUpload->setEnabled(false);
+
+    ui ->tabWidget->setCurrentIndex(imageFirmwarePage);
+    ui ->tabWidget_3->setCurrentIndex(firmwareUploadPage);
+
+    if(!fileName.isEmpty())
+    {
+        ui->FirmwareFile_2->setText(fileName);
+        QFileInfo firmwareFileInfo;
+        firmwareFileInfo.setFile(fileName);
+        m_firmwarePath = firmwareFileInfo.absolutePath();
+    }
+
+    ui-> checkBox_SkipBootLoader ->setChecked(true);
+    ui-> checkBox_FastFlashUpdate ->setChecked(false);
+
+    ui->pushButton_FWUpload->setEnabled(true);
+    ui -> pushButton_FWUpload ->click();
+    //ui->pushButton_FWUpload->setEnabled(false);
+}
+
+void MainWindow::on_pushButton_task1_pattern_clicked()
+{
+    while (ui->radioButton_SLMode->isDown() == false){
+        if ((ui->radioButton_SLMode->isDown() == false) && (ui ->indicatorButton_statusInitDone -> isEnabled())){
+            ui ->radioButton_SLMode ->click();
+        }
+        if (ui ->radioButton_StandbyMode ->isEnabled()){
+            ui -> radioButton_VideoMode ->click();
+            while (ui ->radioButton_StandbyMode ->isDown() || !(ui ->radioButton_VideoMode ->isDown())){
+                //wait
+            }
+        }
+    }
+    int setStartStopSubPage = 2;
+    int patternSeqPage = 1;
+    int seqSettingsSubPage = 0;
+    // ----- Apply Solution ----- //
+    QString fileName;
+
+    fileName = "D:/Zooids/DLP_Custom_GUI/GUI/ini/zooids_settings.ini";
+    if(fileName.isEmpty())
+        return;
+
+    QFileInfo firmwareFileInfo;
+    firmwareFileInfo.setFile(fileName);
+    m_firmwarePath = firmwareFileInfo.absolutePath();
+
+    QFile iniFile(fileName);
+    if(!iniFile.open(QIODevice::ReadWrite | QIODevice::Text))
+    {
+        ShowError("Unable to open .ini file");
+        return;
+    }
+
+    QTextStream in(&iniFile);
+
+    QString firstIniToken;
+    QString line;
+    QByteArray byteArray;
+    char cFirstIniToken[128];
+    char *pCh;
+    uint32 iniParams[MAX_VAR_EXP_PAT_LUT_ENTRIES*3];//Change for variable exposure 1824x3
+    int numIniParams;
+
+#ifdef DEBUG_LOG_EN
+    char tempString[256];
+#endif
+
+    while(!in.atEnd())
+    {
+        line = in.readLine();
+        byteArray = line.toLocal8Bit();
+        pCh = byteArray.data();
+
+        if (DLPC350_Frmw_ParseIniLines(pCh))
+            continue;
+
+        DLPC350_Frmw_GetCurrentIniLineParam(&cFirstIniToken[0], &iniParams[0], &numIniParams);
+        firstIniToken = QString(&cFirstIniToken[0]);
+
+#ifdef DEBUG_LOG_EN
+        qDebug() << "firstIniToken = " << firstIniToken << " numIniParams = " << numIniParams;
+        for(int i=0;i<numIniParams;i++) {
+            sprintf(&tempString[0],"0x%X",iniParams[i]);
+            qDebug() << tempString;
+        }
+#endif
+        ApplyIniParam(firstIniToken, iniParams, numIniParams);
+    }
+
+    iniFile.close();
+
+    //Apply GUI settings to DLPC350
+    ApplyGUISettingToDLPC350();
+    // ----- Apply Solution ----- //
+
+    // ----- Send Pattern ----- //
+    ui ->tabWidget ->setCurrentIndex(patternSeqPage);
+    ui ->tabWidget_2 ->setCurrentIndex(seqSettingsSubPage);
+    ui ->pushButton_PatSeqSendLUT ->click();
+    ui ->tabWidget_2 ->setCurrentIndex(setStartStopSubPage);
+
+    ui ->pushButton_ValidatePatSeq ->click();
+    while (!(ui->pushButton_PatSeqCtrlStart ->isEnabled())){
+        //wait
+    }
+    ui ->pushButton_PatSeqCtrlStart ->click();
+    ui ->tabWidget_2 ->setCurrentIndex(seqSettingsSubPage);
+}
+
 void MainWindow::on_pushButton_Reset_clicked()
 {
     m_usbPollTimer->stop();
@@ -890,6 +1023,8 @@ void MainWindow::on_radioButton_SLMode_clicked()
 {
     int trigMode = 0;
     bool isExtPatDisplayMode = false;
+
+    ui ->label_task1_firmware ->setText("patternMode");
 
 
     SetDLPC350InPatternMode();
