@@ -1,5 +1,4 @@
 # exclude Tests
-GUI/
 Test/
 ~$*.docx
 ~$*.xlsx
