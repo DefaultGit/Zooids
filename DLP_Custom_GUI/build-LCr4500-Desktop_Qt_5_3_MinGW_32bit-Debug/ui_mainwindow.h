@@ -670,6 +670,7 @@ public:
     QPushButton *pushButton_task1_firmware;
     QPushButton *pushButton_task1_pattern;
     QLabel *label_task1_firmware;
+    QPushButton *pushButton_statInfo;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -4454,10 +4455,15 @@ public:
         pushButton_task1_firmware->setGeometry(QRect(30, 100, 221, 34));
         pushButton_task1_pattern = new QPushButton(tab_task1);
         pushButton_task1_pattern->setObjectName(QStringLiteral("pushButton_task1_pattern"));
-        pushButton_task1_pattern->setGeometry(QRect(270, 100, 221, 34));
+        pushButton_task1_pattern->setEnabled(false);
+        pushButton_task1_pattern->setGeometry(QRect(270, 100, 261, 34));
         label_task1_firmware = new QLabel(tab_task1);
         label_task1_firmware->setObjectName(QStringLiteral("label_task1_firmware"));
-        label_task1_firmware->setGeometry(QRect(100, 220, 66, 19));
+        label_task1_firmware->setGeometry(QRect(160, 150, 361, 19));
+        label_task1_firmware->setAutoFillBackground(true);
+        pushButton_statInfo = new QPushButton(tab_task1);
+        pushButton_statInfo->setObjectName(QStringLiteral("pushButton_statInfo"));
+        pushButton_statInfo->setGeometry(QRect(30, 140, 112, 34));
         tabWidget->addTab(tab_task1, QString());
 
         verticalLayout_3->addWidget(tabWidget);
@@ -5349,8 +5355,9 @@ public:
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">For questions or comments about the DLP LightCrafter 4500 EVM or GUI, please visit the TI E2E forum:</p></body></html>", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_Additional_Resources), QApplication::translate("MainWindow", "Additional Resources", 0));
         pushButton_task1_firmware->setText(QApplication::translate("MainWindow", "Upload Firmware for Task 1", 0));
-        pushButton_task1_pattern->setText(QApplication::translate("MainWindow", "Set Pattern", 0));
+        pushButton_task1_pattern->setText(QApplication::translate("MainWindow", "Change to Pattern Sequence Mode", 0));
         label_task1_firmware->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        pushButton_statInfo->setText(QApplication::translate("MainWindow", "Get Status", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_task1), QApplication::translate("MainWindow", "Zooid Tasks", 0));
     } // retranslateUi
 

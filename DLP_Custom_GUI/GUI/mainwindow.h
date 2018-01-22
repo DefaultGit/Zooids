@@ -78,6 +78,7 @@ private slots:
     void timerTimeout(void);
     void on_checkBox_updateStatus_toggled(bool checked);
 
+    void on_pushButton_statInfo_clicked();
     void on_pushButton_task1_firmware_clicked();
     void on_pushButton_task1_pattern_clicked();
 

@@ -7984,29 +7984,48 @@ p, li { white-space: pre-wrap; }
               </property>
              </widget>
              <widget class="QPushButton" name="pushButton_task1_pattern">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="geometry">
                <rect>
                 <x>270</x>
                 <y>100</y>
-                <width>221</width>
+                <width>261</width>
                 <height>34</height>
                </rect>
               </property>
               <property name="text">
-               <string>Set Pattern</string>
+               <string>Change to Pattern Sequence Mode</string>
               </property>
              </widget>
              <widget class="QLabel" name="label_task1_firmware">
               <property name="geometry">
                <rect>
-                <x>100</x>
-                <y>220</y>
-                <width>66</width>
+                <x>160</x>
+                <y>150</y>
+                <width>361</width>
                 <height>19</height>
                </rect>
               </property>
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
               <property name="text">
                <string>TextLabel</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="pushButton_statInfo">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>140</y>
+                <width>112</width>
+                <height>34</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Get Status</string>
               </property>
              </widget>
             </widget>
