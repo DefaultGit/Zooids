@@ -21,10 +21,10 @@ WIDTH = 1;
 HEIGHT = 2;
 prjNumOfPixel = [912 1140];
 
-projectorWidth = sym(1); %<--------------------------------- Input Screen width here
+projectorWidth = 0.893 %sym(1); %<--------------------------------- Input Screen width here
 
-projectorHeight = projectorWidth/projectorAR;
-projectorDiag = fWidthToDiag(projectorAR, projectorWidth);
+projectorHeight = 0.555%projectorWidth/projectorAR;
+%projectorDiag = 0.889 %fWidthToDiag(projectorAR, projectorWidth);
 
 prjPixelWidth = projectorWidth / prjNumOfPixel(WIDTH);
 prjPixelHeight = projectorHeight / prjNumOfPixel(HEIGHT);
@@ -33,6 +33,7 @@ prjPixelHeight = projectorHeight / prjNumOfPixel(HEIGHT);
 %Screen resolution of the TV
 screenAR=sym(16/9); %<--------Input the screen resolution of the TV here
 
+%Has to be reduced, or the video file will be too large (up to 1GB/sec)
 scrnNumOfPixel = [3840, 2160]; %<------Input pixel (w x h). I.e. 4k would be 3840 × 2160
 
 % screenDiagInch= 55; %THIS IS NOT TRUE. Pixel Area is 68cm by 121cm
@@ -60,7 +61,13 @@ scrnPixelHeight = screenHeight / scrnNumOfPixel(HEIGHT);
 %     vid(:,:,:,3*(i-1)+2) = B;
 %     vid(:,:,:,3*(i-1)+3) = C;
 % end
-% 
+%
+% v = VideoWriter('newFile.avi','Uncompressed AVI');
+% v.FrameRate = 60;
+%
+% open(v);
+% writeVideo(v,vid);
+% close(v);
 
 %% ~~~~~~~~~~ Display results ~~~~~~~~~~ %%
 %disp('Width x Height of projected image: ' + num2str(double(projectorWidth)) + ' meter by ' + num2str(double(projectorHeight)) + ' meter');
@@ -88,8 +95,8 @@ yPrj=1;
 inFig=figure;
 imagesc(input);
 
-screenOffsetX = (scrnNumOfPixel(WIDTH) - ceil(projectorWidth/scrnPixelWidth))/2;
-screenOffsetY = (scrnNumOfPixel(HEIGHT) - ceil(projectorHeight/scrnPixelHeight))/2;
+screenOffsetX = ceil((scrnNumOfPixel(WIDTH) - ceil(projectorWidth/scrnPixelWidth))/2);
+screenOffsetY = ceil((scrnNumOfPixel(HEIGHT) - ceil(projectorHeight/scrnPixelHeight))/2);
 
 outFig = figure;
 imagesc(output);
