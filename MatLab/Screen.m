@@ -21,7 +21,7 @@ WIDTH = 1;
 HEIGHT = 2;
 prjNumOfPixel = [912 1140];
 
-projectorWidth = sym(1); %<--------------------------------- Input Screen witdh here
+projectorWidth = sym(1); %<--------------------------------- Input Screen width here
 
 projectorHeight = projectorWidth/projectorAR;
 projectorDiag = fWidthToDiag(projectorAR, projectorWidth);
@@ -35,11 +35,14 @@ screenAR=sym(16/9); %<--------Input the screen resolution of the TV here
 
 scrnNumOfPixel = [3840, 2160]; %<------Input pixel (w x h). I.e. 4k would be 3840 × 2160
 
-screenDiagInch= 55;
-inchToMeter(screenDiagInch)
-[screenWidth, screenHeight] = fDiagToRectangular(screenAR, inchToMeter(screenDiagInch));
-minScreenDiag = fHeightToDiag(screenAR, 0.63);
-minScreenDiagInch = mToInch(minScreenDiag);
+% screenDiagInch= 55; %THIS IS NOT TRUE. Pixel Area is 68cm by 121cm
+% inchToMeter(screenDiagInch)
+% [screenWidth, screenHeight] = fDiagToRectangular(screenAR, inchToMeter(screenDiagInch));
+% minScreenDiag = fHeightToDiag(screenAR, 0.63);
+% minScreenDiagInch = mToInch(minScreenDiag);
+
+screenWidth = 1.21
+screenHeight = 0.68
 
 scrnPixelWidth = screenWidth / scrnNumOfPixel(WIDTH);
 scrnPixelHeight = screenHeight / scrnNumOfPixel(HEIGHT);
@@ -58,13 +61,6 @@ scrnPixelHeight = screenHeight / scrnNumOfPixel(HEIGHT);
 %     vid(:,:,:,3*(i-1)+3) = C;
 % end
 % 
-% v = VideoWriter('newFile.avi','Uncompressed AVI');
-% v.FrameRate = 60
-% 
-% 
-% open(v);
-% writeVideo(v,vid);
-% close(v);
 
 %% ~~~~~~~~~~ Display results ~~~~~~~~~~ %%
 %disp('Width x Height of projected image: ' + num2str(double(projectorWidth)) + ' meter by ' + num2str(double(projectorHeight)) + ' meter');
@@ -84,7 +80,7 @@ prjPixelHeight = double (prjPixelHeight)
 %% ~~~~~~~~~~ Map Input to Output ~~~~~~~~~~ %%
 %input = rand(prjNumOfPixel(2), prjNumOfPixel(1)); % resolution of projector
 input = (imread('test.png'));
-output = uint8(zeros(scrnNumOfPixel(HEIGHT),scrnNumOfPixel(WIDTH),3));
+output = uint8(255*ones(scrnNumOfPixel(HEIGHT),scrnNumOfPixel(WIDTH),3));
 
 xPrj=1;
 yPrj=1;
@@ -101,12 +97,12 @@ imagesc(output);
 % ASSUMES THAT THE TV PIXELS ARE ALAYS SMALLER THEN THE PROJECTOR PIXELS
 for yTV = (screenOffsetY + 1):1:(scrnNumOfPixel(HEIGHT))
     if (((yTV - 0.5 - screenOffsetY) * scrnPixelHeight) > projectorHeight);
-        output(yTV,:,:)=0;
+        %output(yTV,:,:)=0;
     else
         yPrj = ceil(((yTV -0.5 - screenOffsetY)*scrnPixelHeight) / prjPixelHeight);
         for xTV = (screenOffsetX + 1):1:(scrnNumOfPixel(WIDTH))
             if (((xTV - 0.5 - screenOffsetX) * scrnPixelWidth) > projectorWidth);
-                output(yTV,xTV,:) = 0;
+                %output(yTV,xTV,:) = 0;
             else
                 xPrj = ceil(((xTV - 0.5 - screenOffsetX) * scrnPixelWidth)/prjPixelWidth);
                 output(yTV,xTV,:) = input(yPrj, xPrj,:);
@@ -116,6 +112,26 @@ for yTV = (screenOffsetY + 1):1:(scrnNumOfPixel(HEIGHT))
 end
 
 imagesc(output);
+imwrite(output, 'tv res.png')
+
+%% test
+v = VideoWriter('OnOff.avi','Uncompressed AVI');
+v.FrameRate = 2
+
+vid=uint8(zeros(2160,3840,3));
+black = uint8(zeros(2160,3840,3));
+
+for i =1:10
+    vid(:,:,:,i*2-1)=black;
+end
+
+for i = 1:10
+    vid(:,:,:,i*2)=output;
+end
+
+open(v);
+writeVideo(v,vid);
+close(v);
 
 %% ~~~~~~~~~ Functions ~~~~~~~~~~ %%
 function inch = mToInch(meter)
