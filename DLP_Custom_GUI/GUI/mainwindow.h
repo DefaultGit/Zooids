@@ -81,6 +81,7 @@ private slots:
     void on_pushButton_statInfo_clicked();
     void on_pushButton_task1_firmware_clicked();
     void on_pushButton_task1_pattern_clicked();
+    void applySolution_task1();
 
     void on_pushButton_Connect_clicked();
     void on_pushButton_Reset_clicked();

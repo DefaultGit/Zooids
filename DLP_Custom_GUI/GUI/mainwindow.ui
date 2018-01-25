@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1328</width>
-    <height>1040</height>
+    <width>1584</width>
+    <height>1055</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -47,15 +47,15 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1290</width>
-         <height>1023</height>
+         <width>1558</width>
+         <height>1029</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="3,2,2,0">
+           <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="3,2,2,0,0">
             <property name="spacing">
              <number>2</number>
             </property>
@@ -71,6 +71,27 @@
                <string>System Control</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_31">
+               <item row="1" column="0">
+                <layout class="QFormLayout" name="formLayout_2">
+                 <property name="fieldGrowthPolicy">
+                  <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_API">
+                   <property name="text">
+                    <string> Firmware Version:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLabel" name="label_ApiVersion">
+                   <property name="text">
+                    <string>XX.XX.XX</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
                <item row="0" column="0">
                 <layout class="QHBoxLayout" name="horizontalLayout_8">
                  <property name="spacing">
@@ -108,27 +129,6 @@
                    </property>
                    <property name="text">
                     <string>System Reset</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="1" column="0">
-                <layout class="QFormLayout" name="formLayout_2">
-                 <property name="fieldGrowthPolicy">
-                  <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-                 </property>
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_API">
-                   <property name="text">
-                    <string> Firmware Version:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1">
-                  <widget class="QLabel" name="label_ApiVersion">
-                   <property name="text">
-                    <string>XX.XX.XX</string>
                    </property>
                   </widget>
                  </item>
@@ -452,6 +452,9 @@ match the video port VSYNC.</string>
                    <property name="icon">
                     <iconset resource="Lcr2.qrc">
                      <normaloff>:/new/prefix1/Icons/Led_R.png</normaloff>:/new/prefix1/Icons/Led_R.png</iconset>
+                   </property>
+                   <property name="checkable">
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>
@@ -879,6 +882,26 @@ match the video port VSYNC.</string>
                </item>
               </layout>
              </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_46">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_task1_firmware">
+                <property name="autoFillBackground">
+                 <bool>true</bool>
+                </property>
+                <property name="text">
+                 <string>In pattern mode, buttons can change this text</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
             <item>
              <spacer name="horizontalSpacer_14">
@@ -2370,7 +2393,7 @@ match the video port VSYNC.</string>
                  </size>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="tab_pat_seq_seq_settings">
                  <attribute name="title">
@@ -7988,7 +8011,7 @@ p, li { white-space: pre-wrap; }
              </widget>
              <widget class="QPushButton" name="pushButton_task1_pattern">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="geometry">
                <rect>
@@ -8000,22 +8023,6 @@ p, li { white-space: pre-wrap; }
               </property>
               <property name="text">
                <string>Change to Pattern Sequence Mode</string>
-              </property>
-             </widget>
-             <widget class="QLabel" name="label_task1_firmware">
-              <property name="geometry">
-               <rect>
-                <x>160</x>
-                <y>150</y>
-                <width>361</width>
-                <height>19</height>
-               </rect>
-              </property>
-              <property name="autoFillBackground">
-               <bool>true</bool>
-              </property>
-              <property name="text">
-               <string>task1_firmware</string>
               </property>
              </widget>
              <widget class="QPushButton" name="pushButton_statInfo">

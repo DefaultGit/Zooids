@@ -40,6 +40,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <QDesktopServices>
+
 #include "hidapi.h"
 
 #include "dlpc350_common.h"
@@ -254,6 +256,7 @@ static int My_ImgeGet(void *Param, unsigned int X, unsigned int Y, \
     return 0;
 }
 
+bool cancelTask1 = false;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -827,12 +830,14 @@ void MainWindow::on_pushButton_statInfo_clicked()
 
 void MainWindow::on_pushButton_task1_firmware_clicked()
 {
+    /*
     int imageFirmwarePage = 3;
     int firmwareUploadPage = 2;
     int customWindowIndex = 5;
 
     emit on_pushButton_task1_pattern_clicked();
-
+*/
+    QDesktopServices::openUrl( QUrl::fromLocalFile("../GUI/"));
     /*
     ui ->label_task1 ->setText("Button pressed");
     if (ui->radioButton_SLMode->isDown() == false){
@@ -877,118 +882,39 @@ void MainWindow::on_pushButton_task1_pattern_clicked()
     int patternSeqPage = 1;
     int seqSettingsSubPage = 0;
 
+    // Boolean states of the Radio Buttons
+    bool inStandbyMode = ui ->radioButton_StandbyMode ->isChecked();
+    bool alreadyPressed = ui ->radioButton_SLMode ->isChecked();
+    bool inPatMode = ui->radioButton_SLMode->isChecked();
+    bool seqAbort = ui->indicatorButton_statusSeqAbort->isEnabled();
+
     ui ->label_task1_firmware->setText("Button pressed");
-/*
-    bool inStandbyMode = ui ->radioButton_StandbyMode ->isDown();
-    bool alreadyPressed = ui->radioButton_SLMode->isDown();
-    // Check if Pattern Sequence Mode can be pressed (unreachable)
+
     if ((!alreadyPressed) && (!inStandbyMode)){
-        ui ->label_task1_firmware ->setText("Set Pattern mode with Button");
+        //emit on_radioButton_SLMode_clicked(); //Doesnt actually changes the Button-state
+        ui ->label_task1_firmware ->setText("Changing to Pattern Sequence Mode");
         ui ->radioButton_SLMode ->click();
-        // Wait until mode has been switched
-        //while (inStandbyMode || !alreadyPressed){
-            //wait
-        //}
     }
 
-    if (ui->radioButton_SLMode->isDown()){
-        // ----- Apply Solution ----- //
-        // Code from on_pushButton_ApplySolution_clicked() modified to have a default .ini file
-        ui ->label_task1_firmware ->setText("Apply Solution");
-        if (true){
-            QString fileName;
+    //ui->tabWidget->setCurrentIndex(1);
+    /*
+     * not working
+     * while ((!inPatMode || seqAbort) && !cancelTask1){
+        ui ->label_task1_firmware ->setText("Waiting for entering Pattern Sequence Mode");
+    }*/
 
-            fileName = "D:/Zooids/DLP_Custom_GUI/GUI/ini/zooids_settings.ini";
-            if(fileName.isEmpty())
-                return;
+    applySolution_task1(); //makes screen a weird color, but works more reliably then applying the solution from video mode. Applying it from video mode fails more often then it works
+    ui ->label_task1_firmware ->setText("Applying Solution");
 
-            QFileInfo firmwareFileInfo;
-            firmwareFileInfo.setFile(fileName);
-            m_firmwarePath = firmwareFileInfo.absolutePath();
+    ui ->pushButton_PatSeqSendLUT ->click();// Send the pattern from the .ini file to get validated and uploaded
+    ui ->pushButton_ValidatePatSeq ->click();// Validate Sequence
 
-            QFile iniFile(fileName);
-            if(!iniFile.open(QIODevice::ReadWrite | QIODevice::Text))
-            {
-
-                ShowError("Unable to open .ini file");
-                return;
-            }
-
-            QTextStream in(&iniFile);
-
-            QString firstIniToken;
-            QString line;
-            QByteArray byteArray;
-            char cFirstIniToken[128];
-            char *pCh;
-            uint32 iniParams[MAX_VAR_EXP_PAT_LUT_ENTRIES*3];//Change for variable exposure 1824x3
-            int numIniParams;
-
-        #ifdef DEBUG_LOG_EN
-            char tempString[256];
-        #endif
-
-            while(!in.atEnd())
-            {
-
-                line = in.readLine();
-                byteArray = line.toLocal8Bit();
-                pCh = byteArray.data();
-
-                if (DLPC350_Frmw_ParseIniLines(pCh))
-                    continue;
-
-                DLPC350_Frmw_GetCurrentIniLineParam(&cFirstIniToken[0], &iniParams[0], &numIniParams);
-                firstIniToken = QString(&cFirstIniToken[0]);
-
-        #ifdef DEBUG_LOG_EN
-                qDebug() << "firstIniToken = " << firstIniToken << " numIniParams = " << numIniParams;
-                for(int i=0;i<numIniParams;i++) {
-
-                    sprintf(&tempString[0],"0x%X",iniParams[i]);
-                    qDebug() << tempString;
-                }
-        #endif
-                ApplyIniParam(firstIniToken, iniParams, numIniParams);
-            }
-
-            iniFile.close();
-
-            //Apply GUI settings to DLPC350
-            ApplyGUISettingToDLPC350();
-
-            ui ->label_task1_firmware ->setText("Solution applied");
-        }
-
-        // ----- Send Pattern ----- //
-        if (true){
-            ui ->label_task1_firmware ->setText("Setting Pattern");
-            // Set pages
-            ui ->tabWidget ->setCurrentIndex(patternSeqPage);
-            ui ->tabWidget_2 ->setCurrentIndex(seqSettingsSubPage);
-
-            // Send the pattern from the .ini file to get validated and uploaded
-            ui ->pushButton_PatSeqSendLUT ->click();
-
-            // Change page
-            ui ->tabWidget_2 ->setCurrentIndex(setStartStopSubPage);
-
-            // Validate Sequence
-            ui ->pushButton_ValidatePatSeq ->click();
-            while (!(ui->pushButton_PatSeqCtrlStart ->isEnabled())){
-                //wait
-            }
-
-            // Start Sequence
-            ui ->pushButton_PatSeqCtrlStart ->click();
-
-            // Change Page
-            ui ->tabWidget_2 ->setCurrentIndex(seqSettingsSubPage);
-
-            ui ->label_task1_firmware ->setText("Pattern Set");
-        }
+    while (!(ui->pushButton_PatSeqCtrlStart ->isEnabled()) && inPatMode){
+        ui ->label_task1_firmware ->setText("Waiting for sequence confirmation");
     }
-    */
+
+    ui ->pushButton_PatSeqCtrlStart ->click();// Start Sequence
+    ui ->label_task1_firmware ->setText("Sequence started");
 }
 
 void MainWindow::on_pushButton_Reset_clicked()
@@ -1009,10 +935,6 @@ void MainWindow::on_pushButton_Reset_clicked()
 
 void MainWindow::on_radioButton_VideoMode_clicked()
 {
-    //Disable buttons in Custom Tab
-    ui ->pushButton_task1_pattern ->setEnabled(false);
-    ui ->pushButton_task1_pattern ->setText("Change to Pattern Sequence Mode");
-
     int i = 0;
     bool mode;
 
@@ -1072,10 +994,7 @@ void MainWindow::on_radioButton_SLMode_clicked()
     int trigMode = 0;
     bool isExtPatDisplayMode = false;
 
-    ui ->label_task1_firmware ->setText("Changed to patternMode");
-    ui ->pushButton_task1_pattern ->setEnabled(true);
-    ui ->pushButton_task1_pattern ->setText("Set Pattern");
-
+    ui ->pushButton_task1_pattern ->setText("Set to pattern mode");
 
     SetDLPC350InPatternMode();
 
@@ -1109,10 +1028,6 @@ void MainWindow::on_radioButton_SLMode_clicked()
 
 void MainWindow::on_radioButton_VariableExpSLMode_clicked()
 {
-    //Disable buttons in Custom Tab
-    ui ->pushButton_task1_pattern ->setEnabled(false);
-    ui ->pushButton_task1_pattern ->setText("Change to Pattern Sequence Mode");
-
     int trigMode = 0;
     bool isExtPatDisplayMode = false;
 
@@ -1152,11 +1067,6 @@ void MainWindow::on_radioButton_VariableExpSLMode_clicked()
 
 void MainWindow::on_radioButton_StandbyMode_clicked()
 {
-    //Disable buttons in Custom Tab
-    ui ->pushButton_task1_pattern ->setEnabled(false);
-    ui ->pushButton_task1_pattern ->setText("Change to Video Mode");
-
-    ui ->pushButton_task1_pattern ->setEnabled(false);
     SetDLPC350InVideoMode();
 
     /* Set power mode standby */
@@ -1865,6 +1775,69 @@ void MainWindow::ApplyIniParam(QString token, uint32 *params, int numParams)
     default:
         break;
     }
+}
+
+void MainWindow::applySolution_task1() //copy of on_pushButton_ApplySolution_clicked() with fixed filename
+{
+    QString fileName;
+
+    fileName = "../GUI/ini/zooids_settings.ini";
+
+    if(fileName.isEmpty())
+        return;
+
+    QFileInfo firmwareFileInfo;
+    firmwareFileInfo.setFile(fileName);
+    m_firmwarePath = firmwareFileInfo.absolutePath();
+
+    QFile iniFile(fileName);
+    if(!iniFile.open(QIODevice::ReadWrite | QIODevice::Text))
+    {
+        ShowError("Unable to open .ini file");
+        return;
+    }
+
+    QTextStream in(&iniFile);
+
+    QString firstIniToken;
+    QString line;
+    QByteArray byteArray;
+    char cFirstIniToken[128];
+    char *pCh;
+    uint32 iniParams[MAX_VAR_EXP_PAT_LUT_ENTRIES*3];//Change for variable exposure 1824x3
+    int numIniParams;
+
+#ifdef DEBUG_LOG_EN
+    char tempString[256];
+#endif
+
+    while(!in.atEnd())
+    {
+        line = in.readLine();
+        byteArray = line.toLocal8Bit();
+        pCh = byteArray.data();
+
+        if (DLPC350_Frmw_ParseIniLines(pCh))
+            continue;
+
+        DLPC350_Frmw_GetCurrentIniLineParam(&cFirstIniToken[0], &iniParams[0], &numIniParams);
+        firstIniToken = QString(&cFirstIniToken[0]);
+
+#ifdef DEBUG_LOG_EN
+        qDebug() << "firstIniToken = " << firstIniToken << " numIniParams = " << numIniParams;
+        for(int i=0;i<numIniParams;i++) {
+            sprintf(&tempString[0],"0x%X",iniParams[i]);
+            qDebug() << tempString;
+        }
+#endif
+        ApplyIniParam(firstIniToken, iniParams, numIniParams);
+    }
+
+    iniFile.close();
+
+    //Apply GUI settings to DLPC350
+    ApplyGUISettingToDLPC350();
+
 }
 
 void MainWindow::on_pushButton_ApplySolution_clicked()

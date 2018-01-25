@@ -51,12 +51,12 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QGroupBox *groupBox_SystemCtrl;
     QGridLayout *gridLayout_31;
-    QHBoxLayout *horizontalLayout_8;
-    QPushButton *pushButton_Connect;
-    QPushButton *pushButton_Reset;
     QFormLayout *formLayout_2;
     QLabel *label_API;
     QLabel *label_ApiVersion;
+    QHBoxLayout *horizontalLayout_8;
+    QPushButton *pushButton_Connect;
+    QPushButton *pushButton_Reset;
     QFormLayout *formLayout_8;
     QLabel *label_firmwareTag;
     QLabel *label_firmwareTagInfo;
@@ -118,6 +118,8 @@ public:
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton_GetLEDConfiguration;
     QPushButton *pushButton_SetLEDConfiguration;
+    QVBoxLayout *verticalLayout_46;
+    QLabel *label_task1_firmware;
     QSpacerItem *horizontalSpacer_14;
     QHBoxLayout *horizontalLayout_26;
     QPushButton *pushButton_ApplySolution;
@@ -669,7 +671,6 @@ public:
     QWidget *tab_task1;
     QPushButton *pushButton_task1_firmware;
     QPushButton *pushButton_task1_pattern;
-    QLabel *label_task1_firmware;
     QPushButton *pushButton_statInfo;
 
     void setupUi(QMainWindow *MainWindow)
@@ -677,7 +678,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->setEnabled(true);
-        MainWindow->resize(1328, 1040);
+        MainWindow->resize(1584, 1055);
         QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -699,7 +700,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1290, 1023));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1558, 1029));
         verticalLayout_5 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setContentsMargins(11, 11, 11, 11);
@@ -718,6 +719,23 @@ public:
         gridLayout_31->setSpacing(6);
         gridLayout_31->setContentsMargins(11, 11, 11, 11);
         gridLayout_31->setObjectName(QStringLiteral("gridLayout_31"));
+        formLayout_2 = new QFormLayout();
+        formLayout_2->setSpacing(6);
+        formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
+        formLayout_2->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
+        label_API = new QLabel(groupBox_SystemCtrl);
+        label_API->setObjectName(QStringLiteral("label_API"));
+
+        formLayout_2->setWidget(0, QFormLayout::LabelRole, label_API);
+
+        label_ApiVersion = new QLabel(groupBox_SystemCtrl);
+        label_ApiVersion->setObjectName(QStringLiteral("label_ApiVersion"));
+
+        formLayout_2->setWidget(0, QFormLayout::FieldRole, label_ApiVersion);
+
+
+        gridLayout_31->addLayout(formLayout_2, 1, 0, 1, 1);
+
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setSpacing(2);
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
@@ -746,23 +764,6 @@ public:
 
 
         gridLayout_31->addLayout(horizontalLayout_8, 0, 0, 1, 1);
-
-        formLayout_2 = new QFormLayout();
-        formLayout_2->setSpacing(6);
-        formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
-        formLayout_2->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
-        label_API = new QLabel(groupBox_SystemCtrl);
-        label_API->setObjectName(QStringLiteral("label_API"));
-
-        formLayout_2->setWidget(0, QFormLayout::LabelRole, label_API);
-
-        label_ApiVersion = new QLabel(groupBox_SystemCtrl);
-        label_ApiVersion->setObjectName(QStringLiteral("label_ApiVersion"));
-
-        formLayout_2->setWidget(0, QFormLayout::FieldRole, label_ApiVersion);
-
-
-        gridLayout_31->addLayout(formLayout_2, 1, 0, 1, 1);
 
         formLayout_8 = new QFormLayout();
         formLayout_8->setSpacing(6);
@@ -911,6 +912,7 @@ public:
         indicatorButton_statusSeqAbort->setMaximumSize(QSize(28, 24));
         indicatorButton_statusSeqAbort->setAcceptDrops(false);
         indicatorButton_statusSeqAbort->setIcon(icon3);
+        indicatorButton_statusSeqAbort->setCheckable(false);
 
         gridLayout_10->addWidget(indicatorButton_statusSeqAbort, 2, 3, 1, 1);
 
@@ -1153,6 +1155,20 @@ public:
         verticalLayout_6->setStretch(0, 1);
 
         horizontalLayout_3->addWidget(groupBox_LEDDriverCtrl);
+
+        verticalLayout_46 = new QVBoxLayout();
+        verticalLayout_46->setSpacing(6);
+        verticalLayout_46->setObjectName(QStringLiteral("verticalLayout_46"));
+        verticalLayout_46->setContentsMargins(0, -1, -1, -1);
+        label_task1_firmware = new QLabel(scrollAreaWidgetContents);
+        label_task1_firmware->setObjectName(QStringLiteral("label_task1_firmware"));
+        label_task1_firmware->setAutoFillBackground(true);
+        label_task1_firmware->setWordWrap(true);
+
+        verticalLayout_46->addWidget(label_task1_firmware);
+
+
+        horizontalLayout_3->addLayout(verticalLayout_46);
 
         horizontalSpacer_14 = new QSpacerItem(0, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
 
@@ -4456,12 +4472,8 @@ public:
         pushButton_task1_firmware->setGeometry(QRect(30, 100, 221, 34));
         pushButton_task1_pattern = new QPushButton(tab_task1);
         pushButton_task1_pattern->setObjectName(QStringLiteral("pushButton_task1_pattern"));
-        pushButton_task1_pattern->setEnabled(false);
+        pushButton_task1_pattern->setEnabled(true);
         pushButton_task1_pattern->setGeometry(QRect(270, 100, 261, 34));
-        label_task1_firmware = new QLabel(tab_task1);
-        label_task1_firmware->setObjectName(QStringLiteral("label_task1_firmware"));
-        label_task1_firmware->setGeometry(QRect(160, 150, 361, 19));
-        label_task1_firmware->setAutoFillBackground(true);
         pushButton_statInfo = new QPushButton(tab_task1);
         pushButton_statInfo->setObjectName(QStringLiteral("pushButton_statInfo"));
         pushButton_statInfo->setGeometry(QRect(30, 140, 112, 34));
@@ -4481,7 +4493,7 @@ public:
         retranslateUi(MainWindow);
 
         tabWidget->setCurrentIndex(5);
-        tabWidget_2->setCurrentIndex(0);
+        tabWidget_2->setCurrentIndex(2);
         comboBox_PatSeqSelTrigType->setCurrentIndex(0);
         comboBox_VarExpPatSeqSelTrigType->setCurrentIndex(0);
         comboBox_i2cAddrMode->setCurrentIndex(0);
@@ -4498,10 +4510,10 @@ public:
         centralWidget->setToolTip(QString());
 #endif // QT_NO_TOOLTIP
         groupBox_SystemCtrl->setTitle(QApplication::translate("MainWindow", "System Control", 0));
-        pushButton_Connect->setText(QApplication::translate("MainWindow", "Connected", 0));
-        pushButton_Reset->setText(QApplication::translate("MainWindow", "System Reset", 0));
         label_API->setText(QApplication::translate("MainWindow", " Firmware Version:", 0));
         label_ApiVersion->setText(QApplication::translate("MainWindow", "XX.XX.XX", 0));
+        pushButton_Connect->setText(QApplication::translate("MainWindow", "Connected", 0));
+        pushButton_Reset->setText(QApplication::translate("MainWindow", "System Reset", 0));
         label_firmwareTag->setText(QApplication::translate("MainWindow", " Firmware Tag:", 0));
         label_firmwareTagInfo->setText(QApplication::translate("MainWindow", " XXX", 0));
         label_statusSeqRun->setText(QApplication::translate("MainWindow", "Seq. Running", 0));
@@ -4565,6 +4577,7 @@ public:
         checkBox_BlueEnable->setText(QApplication::translate("MainWindow", "Blue", 0));
         pushButton_GetLEDConfiguration->setText(QApplication::translate("MainWindow", "Get", 0));
         pushButton_SetLEDConfiguration->setText(QApplication::translate("MainWindow", "Set", 0));
+        label_task1_firmware->setText(QApplication::translate("MainWindow", "In pattern mode, buttons can change this text", 0));
         pushButton_ApplySolution->setText(QApplication::translate("MainWindow", "Apply Solution", 0));
         pushButton_SaveSolution->setText(QApplication::translate("MainWindow", "Save Solution", 0));
         pushButton_ApplyDefaultSolution->setText(QApplication::translate("MainWindow", "Apply Default Solution", 0));
@@ -5357,7 +5370,6 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_Additional_Resources), QApplication::translate("MainWindow", "Additional Resources", 0));
         pushButton_task1_firmware->setText(QApplication::translate("MainWindow", "Upload Firmware", 0));
         pushButton_task1_pattern->setText(QApplication::translate("MainWindow", "Change to Pattern Sequence Mode", 0));
-        label_task1_firmware->setText(QApplication::translate("MainWindow", "task1_firmware", 0));
         pushButton_statInfo->setText(QApplication::translate("MainWindow", "StatInfo", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_task1), QApplication::translate("MainWindow", "Zooid Tasks", 0));
     } // retranslateUi
