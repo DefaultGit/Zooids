@@ -7971,6 +7971,9 @@ p, li { white-space: pre-wrap; }
               <string>Zooid Tasks</string>
              </attribute>
              <widget class="QPushButton" name="pushButton_task1_firmware">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="geometry">
                <rect>
                 <x>30</x>
@@ -7980,7 +7983,7 @@ p, li { white-space: pre-wrap; }
                </rect>
               </property>
               <property name="text">
-               <string>Upload Firmware for Task 1</string>
+               <string>Upload Firmware</string>
               </property>
              </widget>
              <widget class="QPushButton" name="pushButton_task1_pattern">
@@ -8012,7 +8015,7 @@ p, li { white-space: pre-wrap; }
                <bool>true</bool>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string>task1_firmware</string>
               </property>
              </widget>
              <widget class="QPushButton" name="pushButton_statInfo">
@@ -8025,7 +8028,7 @@ p, li { white-space: pre-wrap; }
                </rect>
               </property>
               <property name="text">
-               <string>Get Status</string>
+               <string>StatInfo</string>
               </property>
              </widget>
             </widget>

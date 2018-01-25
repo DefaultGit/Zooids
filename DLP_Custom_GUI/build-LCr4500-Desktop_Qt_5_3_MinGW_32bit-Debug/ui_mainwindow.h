@@ -4452,6 +4452,7 @@ public:
         tab_task1->setObjectName(QStringLiteral("tab_task1"));
         pushButton_task1_firmware = new QPushButton(tab_task1);
         pushButton_task1_firmware->setObjectName(QStringLiteral("pushButton_task1_firmware"));
+        pushButton_task1_firmware->setEnabled(true);
         pushButton_task1_firmware->setGeometry(QRect(30, 100, 221, 34));
         pushButton_task1_pattern = new QPushButton(tab_task1);
         pushButton_task1_pattern->setObjectName(QStringLiteral("pushButton_task1_pattern"));
@@ -5354,10 +5355,10 @@ public:
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">For questions or comments about the DLP LightCrafter 4500 EVM or GUI, please visit the TI E2E forum:</p></body></html>", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_Additional_Resources), QApplication::translate("MainWindow", "Additional Resources", 0));
-        pushButton_task1_firmware->setText(QApplication::translate("MainWindow", "Upload Firmware for Task 1", 0));
+        pushButton_task1_firmware->setText(QApplication::translate("MainWindow", "Upload Firmware", 0));
         pushButton_task1_pattern->setText(QApplication::translate("MainWindow", "Change to Pattern Sequence Mode", 0));
-        label_task1_firmware->setText(QApplication::translate("MainWindow", "TextLabel", 0));
-        pushButton_statInfo->setText(QApplication::translate("MainWindow", "Get Status", 0));
+        label_task1_firmware->setText(QApplication::translate("MainWindow", "task1_firmware", 0));
+        pushButton_statInfo->setText(QApplication::translate("MainWindow", "StatInfo", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_task1), QApplication::translate("MainWindow", "Zooid Tasks", 0));
     } // retranslateUi
 

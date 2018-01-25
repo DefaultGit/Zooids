@@ -831,6 +831,8 @@ void MainWindow::on_pushButton_task1_firmware_clicked()
     int firmwareUploadPage = 2;
     int customWindowIndex = 5;
 
+    emit on_pushButton_task1_pattern_clicked();
+
     /*
     ui ->label_task1 ->setText("Button pressed");
     if (ui->radioButton_SLMode->isDown() == false){
@@ -839,7 +841,7 @@ void MainWindow::on_pushButton_task1_firmware_clicked()
     */
 
     //ui ->tabWidget->setCurrentIndex(customWindowIndex);
-
+/*
     QString fileName;
 
     fileName = "D:/Zooids/DLP_Custom_GUI/GUI/firmware/zooids_firmware.bin";
@@ -865,19 +867,18 @@ void MainWindow::on_pushButton_task1_firmware_clicked()
     ui->pushButton_FWUpload->setEnabled(true);
     ui -> pushButton_FWUpload ->click();
     //ui->pushButton_FWUpload->setEnabled(false);
+    */
 }
 
 void MainWindow::on_pushButton_task1_pattern_clicked()
-// not working anymore
-
 {
     // Define (Sub)Page Numbers
     int setStartStopSubPage = 2;
     int patternSeqPage = 1;
     int seqSettingsSubPage = 0;
 
-    ui ->label_task1_firmware ->setText("Button pressed");
-
+    ui ->label_task1_firmware->setText("Button pressed");
+/*
     bool inStandbyMode = ui ->radioButton_StandbyMode ->isDown();
     bool alreadyPressed = ui->radioButton_SLMode->isDown();
     // Check if Pattern Sequence Mode can be pressed (unreachable)
@@ -987,6 +988,7 @@ void MainWindow::on_pushButton_task1_pattern_clicked()
             ui ->label_task1_firmware ->setText("Pattern Set");
         }
     }
+    */
 }
 
 void MainWindow::on_pushButton_Reset_clicked()
