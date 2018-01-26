@@ -1,0 +1,6 @@
+# exclude SwarmUI's GitHub
+compile_monitor_test.bat
+compile_PrtTest.bat
+a.exe
+grid.png
+OnOff.avi
