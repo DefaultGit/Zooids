@@ -8,7 +8,7 @@ clear
 %https://de.mathworks.com/help/matlab/ref/mfilename.html
 %https://de.mathworks.com/help/matlab/ref/dir.html#responsive_offcanvas
 
-%% Run this script to save all .png files in the folder into another folder ../bmp/ as .bmp files
+%% Run this script to save all .png files in the folder into another folder ../bmp/ as .bmp files (overwrites old files)
 matlabFileName = mfilename;
 folderInfo = dir;
 NUM_OF_PNG = length(folderInfo);

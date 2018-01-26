@@ -18,7 +18,8 @@ SOURCES +=  main.cpp\
             dlpc350_usb.cpp \
             dlpc350_api.cpp \
             dlpc350_BMPParser.cpp \
-            dlpc350_firmware.cpp
+            dlpc350_firmware.cpp \
+    show_vlc_video.cpp
 
 HEADERS  += mainwindow.h \
             dlpc350_usb.h \
@@ -29,7 +30,8 @@ HEADERS  += mainwindow.h \
             dlpc350_common.h \
             dlpc350_flashDevice.h \
             Helper.h \
-            dlpc350_error.h
+            dlpc350_error.h \
+    show_vlc_video.h
 
 INCLUDEPATH += "hidapi-master\\hidapi"
 
