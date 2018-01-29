@@ -672,6 +672,10 @@ public:
     QPushButton *pushButton_task1_firmware;
     QPushButton *pushButton_task1_pattern;
     QPushButton *pushButton_statInfo;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout_34;
+    QPushButton *pushButton_task2_firmware_make;
+    QLineEdit *lineEdit_task2_FWtag;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -1131,7 +1135,7 @@ public:
         gridLayout->addWidget(checkBox_BlueEnable, 3, 1, 1, 1);
 
 
-        horizontalLayout_2->addWidget(groupBox_LEDEnSelect, 0, Qt::AlignLeft);
+        horizontalLayout_2->addWidget(groupBox_LEDEnSelect);
 
 
         verticalLayout_6->addLayout(horizontalLayout_2);
@@ -4477,6 +4481,25 @@ public:
         pushButton_statInfo = new QPushButton(tab_task1);
         pushButton_statInfo->setObjectName(QStringLiteral("pushButton_statInfo"));
         pushButton_statInfo->setGeometry(QRect(30, 140, 112, 34));
+        horizontalLayoutWidget = new QWidget(tab_task1);
+        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(100, 260, 451, 80));
+        horizontalLayout_34 = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout_34->setSpacing(6);
+        horizontalLayout_34->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_34->setObjectName(QStringLiteral("horizontalLayout_34"));
+        horizontalLayout_34->setContentsMargins(0, 0, 0, 0);
+        pushButton_task2_firmware_make = new QPushButton(horizontalLayoutWidget);
+        pushButton_task2_firmware_make->setObjectName(QStringLiteral("pushButton_task2_firmware_make"));
+        pushButton_task2_firmware_make->setEnabled(true);
+
+        horizontalLayout_34->addWidget(pushButton_task2_firmware_make);
+
+        lineEdit_task2_FWtag = new QLineEdit(horizontalLayoutWidget);
+        lineEdit_task2_FWtag->setObjectName(QStringLiteral("lineEdit_task2_FWtag"));
+
+        horizontalLayout_34->addWidget(lineEdit_task2_FWtag);
+
         tabWidget->addTab(tab_task1, QString());
 
         verticalLayout_3->addWidget(tabWidget);
@@ -4497,7 +4520,7 @@ public:
         comboBox_PatSeqSelTrigType->setCurrentIndex(0);
         comboBox_VarExpPatSeqSelTrigType->setCurrentIndex(0);
         comboBox_i2cAddrMode->setCurrentIndex(0);
-        tabWidget_3->setCurrentIndex(2);
+        tabWidget_3->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -5371,6 +5394,8 @@ public:
         pushButton_task1_firmware->setText(QApplication::translate("MainWindow", "Upload Firmware", 0));
         pushButton_task1_pattern->setText(QApplication::translate("MainWindow", "Change to Pattern Sequence Mode", 0));
         pushButton_statInfo->setText(QApplication::translate("MainWindow", "StatInfo", 0));
+        pushButton_task2_firmware_make->setText(QApplication::translate("MainWindow", "Generate Firmware", 0));
+        lineEdit_task2_FWtag->setText(QApplication::translate("MainWindow", "Enter Firmware Tag", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_task1), QApplication::translate("MainWindow", "Zooid Tasks", 0));
     } // retranslateUi
 

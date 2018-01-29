@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\dlpc350_common.o
+./release\dlpc350_usb.o
+./release\dlpc350_api.o
+./release\dlpc350_BMPParser.o
+./release\dlpc350_firmware.o
+./release\show_vlc_video.o
+./release\qrc_Lcr2.o
+./release\moc_mainwindow.o
+);
