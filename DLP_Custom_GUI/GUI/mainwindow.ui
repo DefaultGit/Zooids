@@ -6752,7 +6752,7 @@ p, li { white-space: pre-wrap; }
                  </sizepolicy>
                 </property>
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="tab_Create_Splash">
                  <attribute name="title">
@@ -8037,6 +8037,35 @@ p, li { white-space: pre-wrap; }
               <property name="text">
                <string>StatInfo</string>
               </property>
+             </widget>
+             <widget class="QWidget" name="horizontalLayoutWidget">
+              <property name="geometry">
+               <rect>
+                <x>100</x>
+                <y>260</y>
+                <width>451</width>
+                <height>80</height>
+               </rect>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_34">
+               <item>
+                <widget class="QPushButton" name="pushButton_task1_firmware_make">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="text">
+                  <string>Generate Firmware</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEdit">
+                 <property name="text">
+                  <string>Enter Firmware Tag</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </widget>
            </widget>

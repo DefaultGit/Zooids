@@ -257,6 +257,7 @@ static int My_ImgeGet(void *Param, unsigned int X, unsigned int Y, \
 }
 
 bool cancelTask1 = false;
+const Qstring FIRMWARE_PATH = "../GUI/firmware/";
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -931,6 +932,11 @@ void MainWindow::on_pushButton_Reset_clicked()
 
     m_usbPollTimer->start();
 
+}
+
+void MainWindow::on_pushButton_task1_firmware_make_clicked()
+{
+    FWSelectFWBin_task2("../GUI/firmware/base.bin");
 }
 
 void MainWindow::on_radioButton_VideoMode_clicked()
@@ -5996,15 +6002,9 @@ bool MainWindow::ProcessFlashParamsLine(QString line)
     return false;
 }
 
-void MainWindow::on_pushButton_FWSelectFWBin_clicked()
+void MainWindow::FWSelectFWBin_task2(QString fileName)
 {
-    QString fileName;
     int count;
-
-    fileName = QFileDialog::getOpenFileName(this,
-                                            QString("Select Image to load"),
-                                            m_firmwarePath,
-                                            "*.img *.bin");
 
     count = ui->comboBox_FWSplashImageIndex->count();
     ui->comboBox_FWSplashImageIndex->setEnabled(false);
@@ -6158,6 +6158,17 @@ void MainWindow::on_pushButton_FWSelectFWBin_clicked()
             ui->label_FWFileParseStatus->setText("Retrieved Pattern Images\n");
         }
     }
+}
+
+void MainWindow::on_pushButton_FWSelectFWBin_clicked()
+{
+    QString fileName;
+
+    fileName = QFileDialog::getOpenFileName(this,
+                                            QString("Select Image to load"),
+                                            m_firmwarePath,
+                                            "*.img *.bin");
+    FWSelectFWBin_task2(fileName);
 }
 
 void MainWindow::on_pushButton_FWAddSplashImage_clicked()
