@@ -21,7 +21,7 @@ if (NUM_OF_PNG > 3)
         strcmp('png', fileExtension(folderInfo(i).name))
         if strcmp('png', fileExtension(folderInfo(i).name))            %fileName((end-3):end)) && ~((strcmp(fileName, cat(2, matlabFileName, '.m')) || strcmp(fileName, cat(2, matlabFileName, '.asv')) || strcmp(fileName, '.') || strcmp(fileName, '..')))         
             pic = imread(fileName);
-            fullDestinationFileName = cat(2, '../bmp/', fileName)
+            fullDestinationFileName = cat(2, '../bmp/', fileName(1:end-4),'.bmp')
             imwrite(pic, fullDestinationFileName, 'bmp');
         end
     end
