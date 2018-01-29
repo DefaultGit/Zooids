@@ -780,7 +780,7 @@ match the video port VSYNC.</string>
                    </layout>
                   </widget>
                  </item>
-                 <item alignment="Qt::AlignLeft">
+                 <item>
                   <widget class="QGroupBox" name="groupBox_LEDEnSelect">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -8049,7 +8049,7 @@ p, li { white-space: pre-wrap; }
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_34">
                <item>
-                <widget class="QPushButton" name="pushButton_task1_firmware_make">
+                <widget class="QPushButton" name="pushButton_task2_firmware_make">
                  <property name="enabled">
                   <bool>true</bool>
                  </property>
@@ -8059,7 +8059,7 @@ p, li { white-space: pre-wrap; }
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEdit">
+                <widget class="QLineEdit" name="lineEdit_task2_FWtag">
                  <property name="text">
                   <string>Enter Firmware Tag</string>
                  </property>

@@ -80,10 +80,13 @@ private slots:
 
     void on_pushButton_statInfo_clicked();
     void on_pushButton_task1_firmware_clicked();
-    void on_pushButton_task1_firmware_make_clicked();
+    void on_pushButton_task2_firmware_make_clicked();
     void on_pushButton_task1_pattern_clicked();
     void applySolution_task1();
     void FWSelectFWBin_task2(QString fileName);
+    void FWSelectIniFile(QString fileName);
+    void FWAddSplashImage(QString fileName);
+    QString* getBMPs();
 
     void on_pushButton_Connect_clicked();
     void on_pushButton_Reset_clicked();

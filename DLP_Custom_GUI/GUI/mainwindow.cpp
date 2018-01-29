@@ -40,6 +40,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <iostream>
+#include <fstream>
+#include <QString>
+//#include <QTextStream>
+
 #include <QDesktopServices>
 
 #include "hidapi.h"
@@ -257,7 +262,11 @@ static int My_ImgeGet(void *Param, unsigned int X, unsigned int Y, \
 }
 
 bool cancelTask1 = false;
-const Qstring FIRMWARE_PATH = "../GUI/firmware/";
+const QString FIRMWARE_PATH = "../GUI/firmware/base.bin";
+const QString INI_PATH = "../GUI/ini/default.ini";
+const QString BMP_FOR_FW_PATH = "../GUI/bmp/bmp_for_fw.txt";
+const QString DEFAULT_FW_TAG = "Enter Firmware Tag";
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -934,9 +943,80 @@ void MainWindow::on_pushButton_Reset_clicked()
 
 }
 
-void MainWindow::on_pushButton_task1_firmware_make_clicked()
+void MainWindow::on_pushButton_task2_firmware_make_clicked()
 {
-    FWSelectFWBin_task2("../GUI/firmware/base.bin");
+
+    QString allFiles = "";
+
+    //Reads the tag that will be assigned to the firmware
+    const QString tagName = ui ->lineEdit_task2_FWtag ->text();
+    //Selects the default Firmware to add images to
+    FWSelectFWBin_task2(FIRMWARE_PATH);
+    //Select default ini file for firmware
+    FWSelectIniFile(INI_PATH);
+
+    //If the tag is not the default lineEdit text, set it to the firmware tag
+    if (QString::compare(tagName, DEFAULT_FW_TAG, Qt::CaseInsensitive) != 0){
+        ui ->lineEdit_firmwareTagName ->setText(tagName);
+    }
+
+    QString* bmpArr = getBMPs();
+    //ui ->lineEdit_task2_FWtag ->setText(*(bmpArr));
+    /*
+    QString path = BMP_FOR_FW_PATH.section("/", 1, -2);
+    QString fileExtension = ".bmp";
+    QString currentImage;
+
+    for (int i = 0; i < MAX_SPLASH_IMAGES; i++){
+        //allFiles = allFiles.append(*bmpArr+i);
+        currentImage = path + *(bmpArr + i) + fileExtension;
+        allFiles = allFiles.append(currentImage);
+        allFiles = allFiles.append("; ");
+        //FWAddSplashImage(currentImage);
+    }
+
+
+    //QString allFiles =
+
+    //ui ->lineEdit_task2_FWtag ->setText(*bmpArr);
+    ui ->lineEdit_task2_FWtag ->setText((allFiles));
+    */
+}
+
+QString* MainWindow::getBMPs(){
+    QString path = BMP_FOR_FW_PATH.left(BMP_FOR_FW_PATH.lastIndexOf("/") + 1);
+    QString fileExtension = ".bmp";
+    QString line[MAX_SPLASH_IMAGES];
+    QString sep = "/";
+    QString fileName = BMP_FOR_FW_PATH.section(sep,-1,-1);
+    ui ->label_task1_firmware ->setText(fileName);
+
+    QString allFiles = "";
+
+    QFile inputFile(BMP_FOR_FW_PATH);
+    if (inputFile.open(QIODevice::ReadOnly))
+    {
+       QTextStream in(&inputFile);
+       int lineNum = 0;
+       while (!in.atEnd())
+       {
+           if (lineNum < MAX_SPLASH_IMAGES){
+               line[lineNum] = in.readLine();
+               ui ->lineEdit_task2_FWtag ->setText(path);
+
+               allFiles.append(line[lineNum]);
+               FWAddSplashImage(path + line[lineNum] + fileExtension);
+           }
+           ui ->lineEdit_task2_FWtag ->setText(QString::number(lineNum));
+           lineNum ++;
+       }
+       inputFile.close();
+    }
+
+    ui ->lineEdit_task2_FWtag ->setText(path);
+    QString* arrayPointer=line;
+
+    return arrayPointer;
 }
 
 void MainWindow::on_radioButton_VideoMode_clicked()
@@ -6171,9 +6251,8 @@ void MainWindow::on_pushButton_FWSelectFWBin_clicked()
     FWSelectFWBin_task2(fileName);
 }
 
-void MainWindow::on_pushButton_FWAddSplashImage_clicked()
+void MainWindow::FWAddSplashImage(QString fileName)
 {
-    QString fileName;
     static QString filePath;
 
     if (m_splashImageAddIndex == MAX_SPLASH_IMAGES)
@@ -6184,10 +6263,7 @@ void MainWindow::on_pushButton_FWAddSplashImage_clicked()
 
     if (filePath == NULL)
         filePath = m_ptnImagePath;
-    fileName = QFileDialog::getOpenFileName(this,
-                                            QString("Select Splash Image"),
-                                            filePath,
-                                            "*.bmp");
+
     if(!fileName.isEmpty())
     {
         QFileInfo patternFileInfo;
@@ -6212,6 +6288,17 @@ void MainWindow::on_pushButton_FWAddSplashImage_clicked()
         ui->label_FWNewSplashImageAddedCount->setText(g_displayStr_splashImageAddedCount + QString::number(++m_splashImageAdded));
     }
     return;
+}
+
+void MainWindow::on_pushButton_FWAddSplashImage_clicked()
+{
+    QString fileName;
+    static QString filePath;
+    fileName= QFileDialog::getOpenFileName(this,
+                                            QString("Select Splash Image"),
+                                            filePath,
+                                            "*.bmp");
+    FWAddSplashImage(fileName);
 }
 
 void MainWindow::on_pushButton_FWRemoveSplashImage_clicked()
@@ -6298,13 +6385,8 @@ void MainWindow::on_pushButton_FWChangeSplashImage_clicked()
     return;
 }
 
-void MainWindow::on_pushButton_FWSelectIniFile_clicked()
+void MainWindow::FWSelectIniFile(QString fileName)
 {
-    QString fileName;
-    fileName = QFileDialog::getOpenFileName(this,
-                                            QString("Select .ini file"),
-                                            m_firmwarePath,
-                                            tr("ini files(*.ini)"));
     if(fileName.isEmpty())
         return;
 
@@ -6313,6 +6395,16 @@ void MainWindow::on_pushButton_FWSelectIniFile_clicked()
     m_firmwarePath = firmwareFileInfo.absolutePath();
 
     ui->lineEdit_FWIniFileSelected->setText(fileName);
+}
+
+void MainWindow::on_pushButton_FWSelectIniFile_clicked()
+{
+    QString fileName;
+    fileName = QFileDialog::getOpenFileName(this,
+                                            QString("Select .ini file"),
+                                            m_firmwarePath,
+                                            tr("ini files(*.ini)"));
+    FWSelectIniFile(fileName);
 }
 
 void MainWindow::on_pushButton_FWClearSelIniFile_clicked()
