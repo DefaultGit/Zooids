@@ -961,6 +961,7 @@ void MainWindow::on_pushButton_task2_firmware_make_clicked()
     }
 
     QString* bmpArr = getBMPs();
+
     //ui ->lineEdit_task2_FWtag ->setText(*(bmpArr));
     /*
     QString path = BMP_FOR_FW_PATH.section("/", 1, -2);
@@ -6702,17 +6703,11 @@ void MainWindow::on_pushButton_FWSplashImageUpload_clicked()
     m_usbPollTimer->start();
 }
 
-void MainWindow::on_pushButton_FWBuildNewFrmwImage_clicked()
+void MainWindow::FWBuildNewFrmwImage(QString fileName)
 {
     int i, count = 0;
-    QString fileName;
     unsigned char *newFrmwImage;
     uint32 newFrmwSize;
-
-    fileName = QFileDialog::getSaveFileName(this,
-                                            QString("Enter name of new Image to be built"),
-                                            m_firmwarePath,
-                                            "*.img *.bin");
 
     if(fileName.isEmpty())
         return;
@@ -6992,6 +6987,16 @@ void MainWindow::on_pushButton_FWBuildNewFrmwImage_clicked()
 
     ui->label_NewFWBuildPath->setText(fileName);
     ShowError("Build Complete\n");
+}
+
+void MainWindow::on_pushButton_FWBuildNewFrmwImage_clicked()
+{
+    QString fileName;
+    fileName = QFileDialog::getSaveFileName(this,
+                                            QString("Enter name of new Image to be built"),
+                                            m_firmwarePath,
+                                            "*.img *.bin");
+    FWBuildNewFrmwImage(fileName);
 }
 
 /* Firmware Upload Function */

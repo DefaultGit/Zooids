@@ -86,6 +86,7 @@ private slots:
     void FWSelectFWBin_task2(QString fileName);
     void FWSelectIniFile(QString fileName);
     void FWAddSplashImage(QString fileName);
+    void FWBuildNewFrmwImage(QString fileName);
     QString* getBMPs();
 
     void on_pushButton_Connect_clicked();

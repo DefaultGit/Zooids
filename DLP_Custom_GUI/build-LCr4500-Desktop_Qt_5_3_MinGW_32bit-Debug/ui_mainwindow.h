@@ -4515,7 +4515,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(5);
+        tabWidget->setCurrentIndex(3);
         tabWidget_2->setCurrentIndex(2);
         comboBox_PatSeqSelTrigType->setCurrentIndex(0);
         comboBox_VarExpPatSeqSelTrigType->setCurrentIndex(0);

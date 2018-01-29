@@ -9,6 +9,9 @@ temp_1.bmp
 temp_2.bmp
 	Uncompressed Size = 3119094 Compression type : RLE Compression Compressed Size = 138752
 
-D:/Zooids/DLP_Custom_GUI/GUI/bmp/test.bmp
+../GUI/bmp/test.bmp
+	Uncompressed Size = 3119094 Compression type : RLE Compression Compressed Size = 44784
+
+../GUI/bmp/test2.bmp
 	Uncompressed Size = 3119094 Compression type : RLE Compression Compressed Size = 44784
 
