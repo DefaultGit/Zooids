@@ -32,7 +32,6 @@ DEFAULT.PATTERNCONFIG.NUM_PATTERNS 0x0 ;
 DEFAULT.SEQPATLUT 0x61100 ;
 
 Vid F0:G0 R (video port)
-
 DEFAULT.PATTERNCONFIG.PAT_EXPOSURE 0x2710 ;
 DEFAULT.PATTERNCONFIG.PAT_PERIOD 0x2710 ;
 DEFAULT.PATTERNCONFIG.PAT_MODE 0x0 ;
@@ -43,3 +42,27 @@ DEFAULT.SPLASHLUT        0x0 ;
 DEFAULT.PATTERNCONFIG.NUM_LUT_ENTRIES 0x0 ;
 DEFAULT.PATTERNCONFIG.NUM_PATTERNS 0x0 ;
 DEFAULT.SEQPATLUT 0x41101 ;
+
+Byte 
+----0----,----1----,----2----
+0000 0000,0000 0000,xxxx 0000	Choose
+xxxx xxxx xxxx xxxx 0000 xxxx	Reserved
+xxxx xx00			Select trigger Type (internal, external +, external -, continue from previous)
+0000 00xx 			Pattern Number
+	  xxxx 0000		Bit-Depth
+	  0000 xxxx		Choose LEDs that are on
+	  	    xxxx xxx0	Do not Invert/Invert
+	  	    xxxx xx0x	Do not insert any post pattern/insert black fill
+	  	    xxxx x0xx	Do not peform bufferswap
+	  	    xxxx 0xxx	Trigger Out
+
+Pattern Number - One Bit Depth
+
+
+	  	    
+	  
+	  
+	  
+	  
+	  
+

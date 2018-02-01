@@ -973,7 +973,7 @@ match the video port VSYNC.</string>
              <enum>Qt::WheelFocus</enum>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_Video_Mode">
              <attribute name="title">
@@ -2393,7 +2393,7 @@ match the video port VSYNC.</string>
                  </size>
                 </property>
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="tab_pat_seq_seq_settings">
                  <attribute name="title">
