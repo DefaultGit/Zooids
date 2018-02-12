@@ -9,9 +9,12 @@ clear
 %https://de.mathworks.com/help/matlab/ref/dir.html#responsive_offcanvas
 
 %% Run this script to save all .png files in the folder into another folder ../bmp/ as .bmp files (overwrites old files)
-matlabFileName = mfilename;
+%Does NOT check if this is possible yet!
+%matlabFileName = mfilename;
 folderInfo = dir;
 NUM_OF_PNG = length(folderInfo);
+
+targetPath = '../24-Bit_BMPs/';
 
 
 if (NUM_OF_PNG > 3)
@@ -21,7 +24,7 @@ if (NUM_OF_PNG > 3)
         strcmp('png', fileExtension(folderInfo(i).name))
         if strcmp('png', fileExtension(folderInfo(i).name))            %fileName((end-3):end)) && ~((strcmp(fileName, cat(2, matlabFileName, '.m')) || strcmp(fileName, cat(2, matlabFileName, '.asv')) || strcmp(fileName, '.') || strcmp(fileName, '..')))         
             pic = imread(fileName);
-            fullDestinationFileName = cat(2, '../bmp/', fileName(1:end-4),'.bmp')
+            fullDestinationFileName = cat(2, targetPath, fileName(1:end-4), '.bmp')
             imwrite(pic, fullDestinationFileName, 'bmp');
         end
     end
