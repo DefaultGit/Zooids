@@ -16,6 +16,15 @@ NUM_OF_PNG = length(folderInfo);
 
 targetPath = '../24-Bit_BMPs/';
 
+fid = fopen('../config.txt');
+
+tline = fgetl(fid);
+while ischar(tline)
+    disp(tline)
+    tline = fgetl(fid);
+end
+
+fclose(fid);
 
 if (NUM_OF_PNG > 3)
     for i =1:1:(NUM_OF_PNG)
