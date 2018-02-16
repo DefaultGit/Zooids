@@ -13,44 +13,56 @@ clear
 FOLDER_INFO = dir;
 NUM_OF_FILES = length(FOLDER_INFO);
 
-TARGET_PATH = '../24-Bit_BMPs/';
 DATA_TYPE = 'bmp';
 
-HOME = '../../'
-
-jsontemp = jsondecode(fileread(strcat(HOME,'path_config.json')))
-dir(strcat(HOME,jsontemp.img,jsontemp.bw))
-
-
-NUM_OF_TARGET_FILE_TYPE = 0;
+%ToDo: Automaticly getting the HOME Path and Paths from the JSON file
+HOME = '../../';
+jsontemp = jsondecode(fileread(strcat(HOME,'path_config.json')));
+%dir(strcat(HOME,jsontemp.bw));
+TARGET_PATH = (strcat(HOME,jsontemp.TrueColor));
 
 outputPicNumber = 0;
 
-currentFileName = FOLDER_INFO(1).name
-outputPic = uint8(zeros(912,1140,));
-
+channelBit = 0;
+channelIndex = 1;
+channelOffset = [3,2,1]; %GRB
+outputIndex = 1;
+outputPic = uint8(zeros(1140,912,3));
+files=0;
 for i=1:1:NUM_OF_FILES
-    if strcmp(DATA_TYPE, fileExtension(FOLDER_INFO(i).name))            %fileName((end-3):end)) && ~((strcmp(fileName, cat(2, matlabFileName, '.m')) || strcmp(fileName, cat(2, matlabFileName, '.asv')) || strcmp(fileName, '.') || strcmp(fileName, '..')))         
-        %pic = imread(fileName);
-        %fullDestinationFileName = cat(2, TARGET_PATH, fileName(1:end-4), '.bmp')
-        %imwrite(pic, fullDestinationFileName, 'bmp');
-        NUM_OF_TARGET_FILE_TYPE = 1 + NUM_OF_TARGET_FILE_TYPE;
-    end
-end
-
-for i=1:1:NUM_OF_FILES
-    if strcmp(DATA_TYPE, fileExtension(FOLDER_INFO(i).name))            %fileName((end-3):end)) && ~((strcmp(fileName, cat(2, matlabFileName, '.m')) || strcmp(fileName, cat(2, matlabFileName, '.asv')) || strcmp(fileName, '.') || strcmp(fileName, '..')))         
-        %pic = imread(fileName);
-        %fullDestinationFileName = cat(2, TARGET_PATH, fileName(1:end-4), '.bmp')
-        %imwrite(pic, fullDestinationFileName, 'bmp');
-        NUM_OF_TARGET_FILE_TYPE = 1 + NUM_OF_TARGET_FILE_TYPE;
-    end
-end
-
-for i=1:1:NUM_OF_TARGET_FILE_TYPE
+    currentFile = FOLDER_INFO(i).name;
     
+    if channelBit > 7 %Only 8 bits per Channels
+        channelIndex = channelIndex + 1; %Change channel, once all bits are set
+        if channelIndex > 3 % 3 Channels
+            imwrite(outputPic, strcat(TARGET_PATH,'TrueColor', num2str(outputIndex),'.bmp'));
+            outputPic = uint8(zeros(1140,912,3));
+            outputIndex = outputIndex + 1; %change picture, once all channels are set
+            channelIndex = mod(channelIndex, 3);
+        end
+        channelBit = mod(channelBit,8);
+    end
+    
+    %if file is bmp
+    if strcmp(DATA_TYPE, fileExtension(FOLDER_INFO(i).name))            %fileName((end-3):end)) && ~((strcmp(fileName, cat(2, matlabFileName, '.m')) || strcmp(fileName, cat(2, matlabFileName, '.asv')) || strcmp(fileName, '.') || strcmp(fileName, '..')))         
+        input = uint8(imread(currentFile)); %Read File
+        input = input(:,:,1);               %If Picture not Single Channel, only use the first channel
+        try
+            input = imbinarize(input);      %Convert picture to single bit depth
+        catch
+            disp('Picture is binary');
+        end
+        input = uint8(input.*(2^(channelBit))); %Bitshift whole Matrix
+        
+        outputPic(:,:,channelOffset(channelIndex)) = bitor(outputPic(:,:,channelOffset(channelIndex)),input); %Set bits
+        channelBit = channelBit + 1;
+        files=files+1
+    end
 end
-
+if ~(channelBit == 0 && channelIndex == 1)
+    imwrite(outputPic, strcat(TARGET_PATH,'TrueColor', num2str(outputIndex),'.bmp'))
+end
+            
 %% Functions 
 
 function extension = fileExtension(string)
