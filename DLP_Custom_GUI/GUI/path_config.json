@@ -1,7 +1,8 @@
 {
   "home": "./",
   "img": "./images/",
-  "bw": "./BW/",
+  "BW": "./images/BW/",
+  "TrueColor": "./images/TrueColor/",
   "age": 27,
   "address": {
     "streetAddress": "21 2nd Street",
