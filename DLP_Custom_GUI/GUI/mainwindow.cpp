@@ -833,7 +833,7 @@ void MainWindow::on_pushButton_Connect_clicked()
 
 void MainWindow::on_pushButton_statInfo_clicked()
 {
-    QPixmap pixmapTarget = QPixmap(":/new/prefix1/Icons/dmd.jpg");
+    QPixmap pixmapTarget = QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/01_G1.bmp");
     //QPixmap pixmapTarget = QPixmap(":/new/prefix1/Icons/dmd.jpg");
    // pixmapTarget = pixmapTarget.scaled(size-5, size-5, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui ->label_49 -> setPixmap(pixmapTarget);

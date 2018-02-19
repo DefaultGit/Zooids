@@ -693,31 +693,31 @@ public:
     QHBoxLayout *horizontalLayout_71;
     QLabel *label_5;
     QLabel *label_6;
-    QLabel *label_2;
+    QLabel *label_repPap_01;
     QLabel *label_8;
-    QLabel *label_10;
-    QLabel *label_11;
-    QLabel *label_12;
-    QLabel *label_13;
-    QLabel *label_16;
-    QLabel *label_15;
-    QLabel *label_14;
-    QLabel *label_17;
-    QLabel *label_22;
-    QLabel *label_28;
-    QLabel *label_23;
-    QLabel *label_25;
-    QLabel *label_27;
-    QLabel *label_24;
-    QLabel *label_26;
-    QLabel *label_29;
-    QLabel *label_20;
-    QLabel *label_19;
-    QLabel *label_18;
-    QLabel *label_21;
+    QLabel *label_repPap_02;
+    QLabel *label_repPap_03;
+    QLabel *label_repPap_04;
+    QLabel *label_repPap_05;
+    QLabel *label_repPap_06;
+    QLabel *label_repPap_07;
+    QLabel *label_repPap_08;
+    QLabel *label_repPap_09;
+    QLabel *label_repPap_10;
+    QLabel *label_repPap_11;
+    QLabel *label_repPap_12;
+    QLabel *label_repPap_13;
+    QLabel *label_repPap_14;
+    QLabel *label_repPap_15;
+    QLabel *label_repPap_16;
+    QLabel *label_repPap_17;
+    QLabel *label_repPap_18;
+    QLabel *label_repPap_19;
+    QLabel *label_repPap_20;
+    QLabel *label_repPap_21;
     QLabel *label_9;
     QLabel *label_7;
-    QLabel *label_30;
+    QLabel *label_repPap_22;
     QWidget *tab_flash;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_66;
@@ -739,7 +739,7 @@ public:
     QHBoxLayout *horizontalLayout_80;
     QLabel *label_46;
     QLabel *label_47;
-    QLabel *label_3;
+    QLabel *label_;
     QLabel *label_48;
     QLabel *label_49;
     QLabel *label_50;
@@ -4723,16 +4723,16 @@ public:
 
         horizontalLayout_71->addWidget(label_6);
 
-        label_2 = new QLabel(verticalLayoutWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setEnabled(true);
-        label_2->setMinimumSize(QSize(24, 30));
-        label_2->setMaximumSize(QSize(24, 30));
-        label_2->setText(QStringLiteral(""));
-        label_2->setPixmap(QPixmap(QString::fromUtf8("images/BW/00_G0.bmp")));
-        label_2->setScaledContents(true);
+        label_repPap_01 = new QLabel(verticalLayoutWidget);
+        label_repPap_01->setObjectName(QStringLiteral("label_repPap_01"));
+        label_repPap_01->setEnabled(true);
+        label_repPap_01->setMinimumSize(QSize(24, 30));
+        label_repPap_01->setMaximumSize(QSize(24, 30));
+        label_repPap_01->setText(QStringLiteral(""));
+        label_repPap_01->setPixmap(QPixmap(QString::fromUtf8("images/BW/00_G0.bmp")));
+        label_repPap_01->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_2);
+        horizontalLayout_71->addWidget(label_repPap_01);
 
         label_8 = new QLabel(verticalLayoutWidget);
         label_8->setObjectName(QStringLiteral("label_8"));
@@ -4742,225 +4742,225 @@ public:
 
         horizontalLayout_71->addWidget(label_8);
 
-        label_10 = new QLabel(verticalLayoutWidget);
-        label_10->setObjectName(QStringLiteral("label_10"));
-        label_10->setEnabled(true);
-        label_10->setMinimumSize(QSize(24, 30));
-        label_10->setMaximumSize(QSize(24, 30));
-        label_10->setText(QStringLiteral(""));
-        label_10->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_10->setScaledContents(true);
+        label_repPap_02 = new QLabel(verticalLayoutWidget);
+        label_repPap_02->setObjectName(QStringLiteral("label_repPap_02"));
+        label_repPap_02->setEnabled(true);
+        label_repPap_02->setMinimumSize(QSize(24, 30));
+        label_repPap_02->setMaximumSize(QSize(24, 30));
+        label_repPap_02->setText(QStringLiteral(""));
+        label_repPap_02->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_02->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_10);
+        horizontalLayout_71->addWidget(label_repPap_02);
 
-        label_11 = new QLabel(verticalLayoutWidget);
-        label_11->setObjectName(QStringLiteral("label_11"));
-        label_11->setEnabled(true);
-        label_11->setMinimumSize(QSize(24, 30));
-        label_11->setMaximumSize(QSize(24, 30));
-        label_11->setText(QStringLiteral(""));
-        label_11->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_11->setScaledContents(true);
+        label_repPap_03 = new QLabel(verticalLayoutWidget);
+        label_repPap_03->setObjectName(QStringLiteral("label_repPap_03"));
+        label_repPap_03->setEnabled(true);
+        label_repPap_03->setMinimumSize(QSize(24, 30));
+        label_repPap_03->setMaximumSize(QSize(24, 30));
+        label_repPap_03->setText(QStringLiteral(""));
+        label_repPap_03->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_03->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_11);
+        horizontalLayout_71->addWidget(label_repPap_03);
 
-        label_12 = new QLabel(verticalLayoutWidget);
-        label_12->setObjectName(QStringLiteral("label_12"));
-        label_12->setEnabled(true);
-        label_12->setMinimumSize(QSize(24, 30));
-        label_12->setMaximumSize(QSize(24, 30));
-        label_12->setText(QStringLiteral(""));
-        label_12->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_12->setScaledContents(true);
+        label_repPap_04 = new QLabel(verticalLayoutWidget);
+        label_repPap_04->setObjectName(QStringLiteral("label_repPap_04"));
+        label_repPap_04->setEnabled(true);
+        label_repPap_04->setMinimumSize(QSize(24, 30));
+        label_repPap_04->setMaximumSize(QSize(24, 30));
+        label_repPap_04->setText(QStringLiteral(""));
+        label_repPap_04->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_04->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_12);
+        horizontalLayout_71->addWidget(label_repPap_04);
 
-        label_13 = new QLabel(verticalLayoutWidget);
-        label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setEnabled(true);
-        label_13->setMinimumSize(QSize(24, 30));
-        label_13->setMaximumSize(QSize(24, 30));
-        label_13->setText(QStringLiteral(""));
-        label_13->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_13->setScaledContents(true);
+        label_repPap_05 = new QLabel(verticalLayoutWidget);
+        label_repPap_05->setObjectName(QStringLiteral("label_repPap_05"));
+        label_repPap_05->setEnabled(true);
+        label_repPap_05->setMinimumSize(QSize(24, 30));
+        label_repPap_05->setMaximumSize(QSize(24, 30));
+        label_repPap_05->setText(QStringLiteral(""));
+        label_repPap_05->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_05->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_13);
+        horizontalLayout_71->addWidget(label_repPap_05);
 
-        label_16 = new QLabel(verticalLayoutWidget);
-        label_16->setObjectName(QStringLiteral("label_16"));
-        label_16->setEnabled(true);
-        label_16->setMinimumSize(QSize(24, 30));
-        label_16->setMaximumSize(QSize(24, 30));
-        label_16->setText(QStringLiteral(""));
-        label_16->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_16->setScaledContents(true);
+        label_repPap_06 = new QLabel(verticalLayoutWidget);
+        label_repPap_06->setObjectName(QStringLiteral("label_repPap_06"));
+        label_repPap_06->setEnabled(true);
+        label_repPap_06->setMinimumSize(QSize(24, 30));
+        label_repPap_06->setMaximumSize(QSize(24, 30));
+        label_repPap_06->setText(QStringLiteral(""));
+        label_repPap_06->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_06->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_16);
+        horizontalLayout_71->addWidget(label_repPap_06);
 
-        label_15 = new QLabel(verticalLayoutWidget);
-        label_15->setObjectName(QStringLiteral("label_15"));
-        label_15->setEnabled(true);
-        label_15->setMinimumSize(QSize(24, 30));
-        label_15->setMaximumSize(QSize(24, 30));
-        label_15->setText(QStringLiteral(""));
-        label_15->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_15->setScaledContents(true);
+        label_repPap_07 = new QLabel(verticalLayoutWidget);
+        label_repPap_07->setObjectName(QStringLiteral("label_repPap_07"));
+        label_repPap_07->setEnabled(true);
+        label_repPap_07->setMinimumSize(QSize(24, 30));
+        label_repPap_07->setMaximumSize(QSize(24, 30));
+        label_repPap_07->setText(QStringLiteral(""));
+        label_repPap_07->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_07->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_15);
+        horizontalLayout_71->addWidget(label_repPap_07);
 
-        label_14 = new QLabel(verticalLayoutWidget);
-        label_14->setObjectName(QStringLiteral("label_14"));
-        label_14->setEnabled(true);
-        label_14->setMinimumSize(QSize(24, 30));
-        label_14->setMaximumSize(QSize(24, 30));
-        label_14->setText(QStringLiteral(""));
-        label_14->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_14->setScaledContents(true);
+        label_repPap_08 = new QLabel(verticalLayoutWidget);
+        label_repPap_08->setObjectName(QStringLiteral("label_repPap_08"));
+        label_repPap_08->setEnabled(true);
+        label_repPap_08->setMinimumSize(QSize(24, 30));
+        label_repPap_08->setMaximumSize(QSize(24, 30));
+        label_repPap_08->setText(QStringLiteral(""));
+        label_repPap_08->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_08->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_14);
+        horizontalLayout_71->addWidget(label_repPap_08);
 
-        label_17 = new QLabel(verticalLayoutWidget);
-        label_17->setObjectName(QStringLiteral("label_17"));
-        label_17->setEnabled(true);
-        label_17->setMinimumSize(QSize(24, 30));
-        label_17->setMaximumSize(QSize(24, 30));
-        label_17->setText(QStringLiteral(""));
-        label_17->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_17->setScaledContents(true);
+        label_repPap_09 = new QLabel(verticalLayoutWidget);
+        label_repPap_09->setObjectName(QStringLiteral("label_repPap_09"));
+        label_repPap_09->setEnabled(true);
+        label_repPap_09->setMinimumSize(QSize(24, 30));
+        label_repPap_09->setMaximumSize(QSize(24, 30));
+        label_repPap_09->setText(QStringLiteral(""));
+        label_repPap_09->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_09->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_17);
+        horizontalLayout_71->addWidget(label_repPap_09);
 
-        label_22 = new QLabel(verticalLayoutWidget);
-        label_22->setObjectName(QStringLiteral("label_22"));
-        label_22->setEnabled(true);
-        label_22->setMinimumSize(QSize(24, 30));
-        label_22->setMaximumSize(QSize(24, 30));
-        label_22->setText(QStringLiteral(""));
-        label_22->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_22->setScaledContents(true);
+        label_repPap_10 = new QLabel(verticalLayoutWidget);
+        label_repPap_10->setObjectName(QStringLiteral("label_repPap_10"));
+        label_repPap_10->setEnabled(true);
+        label_repPap_10->setMinimumSize(QSize(24, 30));
+        label_repPap_10->setMaximumSize(QSize(24, 30));
+        label_repPap_10->setText(QStringLiteral(""));
+        label_repPap_10->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_10->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_22);
+        horizontalLayout_71->addWidget(label_repPap_10);
 
-        label_28 = new QLabel(verticalLayoutWidget);
-        label_28->setObjectName(QStringLiteral("label_28"));
-        label_28->setEnabled(true);
-        label_28->setMinimumSize(QSize(24, 30));
-        label_28->setMaximumSize(QSize(24, 30));
-        label_28->setText(QStringLiteral(""));
-        label_28->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_28->setScaledContents(true);
+        label_repPap_11 = new QLabel(verticalLayoutWidget);
+        label_repPap_11->setObjectName(QStringLiteral("label_repPap_11"));
+        label_repPap_11->setEnabled(true);
+        label_repPap_11->setMinimumSize(QSize(24, 30));
+        label_repPap_11->setMaximumSize(QSize(24, 30));
+        label_repPap_11->setText(QStringLiteral(""));
+        label_repPap_11->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_11->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_28);
+        horizontalLayout_71->addWidget(label_repPap_11);
 
-        label_23 = new QLabel(verticalLayoutWidget);
-        label_23->setObjectName(QStringLiteral("label_23"));
-        label_23->setEnabled(true);
-        label_23->setMinimumSize(QSize(24, 30));
-        label_23->setMaximumSize(QSize(24, 30));
-        label_23->setText(QStringLiteral(""));
-        label_23->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_23->setScaledContents(true);
+        label_repPap_12 = new QLabel(verticalLayoutWidget);
+        label_repPap_12->setObjectName(QStringLiteral("label_repPap_12"));
+        label_repPap_12->setEnabled(true);
+        label_repPap_12->setMinimumSize(QSize(24, 30));
+        label_repPap_12->setMaximumSize(QSize(24, 30));
+        label_repPap_12->setText(QStringLiteral(""));
+        label_repPap_12->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_12->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_23);
+        horizontalLayout_71->addWidget(label_repPap_12);
 
-        label_25 = new QLabel(verticalLayoutWidget);
-        label_25->setObjectName(QStringLiteral("label_25"));
-        label_25->setEnabled(true);
-        label_25->setMinimumSize(QSize(24, 30));
-        label_25->setMaximumSize(QSize(24, 30));
-        label_25->setText(QStringLiteral(""));
-        label_25->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_25->setScaledContents(true);
+        label_repPap_13 = new QLabel(verticalLayoutWidget);
+        label_repPap_13->setObjectName(QStringLiteral("label_repPap_13"));
+        label_repPap_13->setEnabled(true);
+        label_repPap_13->setMinimumSize(QSize(24, 30));
+        label_repPap_13->setMaximumSize(QSize(24, 30));
+        label_repPap_13->setText(QStringLiteral(""));
+        label_repPap_13->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_13->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_25);
+        horizontalLayout_71->addWidget(label_repPap_13);
 
-        label_27 = new QLabel(verticalLayoutWidget);
-        label_27->setObjectName(QStringLiteral("label_27"));
-        label_27->setEnabled(true);
-        label_27->setMinimumSize(QSize(24, 30));
-        label_27->setMaximumSize(QSize(24, 30));
-        label_27->setText(QStringLiteral(""));
-        label_27->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_27->setScaledContents(true);
+        label_repPap_14 = new QLabel(verticalLayoutWidget);
+        label_repPap_14->setObjectName(QStringLiteral("label_repPap_14"));
+        label_repPap_14->setEnabled(true);
+        label_repPap_14->setMinimumSize(QSize(24, 30));
+        label_repPap_14->setMaximumSize(QSize(24, 30));
+        label_repPap_14->setText(QStringLiteral(""));
+        label_repPap_14->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_14->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_27);
+        horizontalLayout_71->addWidget(label_repPap_14);
 
-        label_24 = new QLabel(verticalLayoutWidget);
-        label_24->setObjectName(QStringLiteral("label_24"));
-        label_24->setEnabled(true);
-        label_24->setMinimumSize(QSize(24, 30));
-        label_24->setMaximumSize(QSize(24, 30));
-        label_24->setText(QStringLiteral(""));
-        label_24->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_24->setScaledContents(true);
+        label_repPap_15 = new QLabel(verticalLayoutWidget);
+        label_repPap_15->setObjectName(QStringLiteral("label_repPap_15"));
+        label_repPap_15->setEnabled(true);
+        label_repPap_15->setMinimumSize(QSize(24, 30));
+        label_repPap_15->setMaximumSize(QSize(24, 30));
+        label_repPap_15->setText(QStringLiteral(""));
+        label_repPap_15->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_15->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_24);
+        horizontalLayout_71->addWidget(label_repPap_15);
 
-        label_26 = new QLabel(verticalLayoutWidget);
-        label_26->setObjectName(QStringLiteral("label_26"));
-        label_26->setEnabled(true);
-        label_26->setMinimumSize(QSize(24, 30));
-        label_26->setMaximumSize(QSize(24, 30));
-        label_26->setText(QStringLiteral(""));
-        label_26->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_26->setScaledContents(true);
+        label_repPap_16 = new QLabel(verticalLayoutWidget);
+        label_repPap_16->setObjectName(QStringLiteral("label_repPap_16"));
+        label_repPap_16->setEnabled(true);
+        label_repPap_16->setMinimumSize(QSize(24, 30));
+        label_repPap_16->setMaximumSize(QSize(24, 30));
+        label_repPap_16->setText(QStringLiteral(""));
+        label_repPap_16->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_16->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_26);
+        horizontalLayout_71->addWidget(label_repPap_16);
 
-        label_29 = new QLabel(verticalLayoutWidget);
-        label_29->setObjectName(QStringLiteral("label_29"));
-        label_29->setEnabled(true);
-        label_29->setMinimumSize(QSize(24, 30));
-        label_29->setMaximumSize(QSize(24, 30));
-        label_29->setText(QStringLiteral(""));
-        label_29->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_29->setScaledContents(true);
+        label_repPap_17 = new QLabel(verticalLayoutWidget);
+        label_repPap_17->setObjectName(QStringLiteral("label_repPap_17"));
+        label_repPap_17->setEnabled(true);
+        label_repPap_17->setMinimumSize(QSize(24, 30));
+        label_repPap_17->setMaximumSize(QSize(24, 30));
+        label_repPap_17->setText(QStringLiteral(""));
+        label_repPap_17->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_17->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_29);
+        horizontalLayout_71->addWidget(label_repPap_17);
 
-        label_20 = new QLabel(verticalLayoutWidget);
-        label_20->setObjectName(QStringLiteral("label_20"));
-        label_20->setEnabled(true);
-        label_20->setMinimumSize(QSize(24, 30));
-        label_20->setMaximumSize(QSize(24, 30));
-        label_20->setText(QStringLiteral(""));
-        label_20->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_20->setScaledContents(true);
+        label_repPap_18 = new QLabel(verticalLayoutWidget);
+        label_repPap_18->setObjectName(QStringLiteral("label_repPap_18"));
+        label_repPap_18->setEnabled(true);
+        label_repPap_18->setMinimumSize(QSize(24, 30));
+        label_repPap_18->setMaximumSize(QSize(24, 30));
+        label_repPap_18->setText(QStringLiteral(""));
+        label_repPap_18->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_18->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_20);
+        horizontalLayout_71->addWidget(label_repPap_18);
 
-        label_19 = new QLabel(verticalLayoutWidget);
-        label_19->setObjectName(QStringLiteral("label_19"));
-        label_19->setEnabled(true);
-        label_19->setMinimumSize(QSize(24, 30));
-        label_19->setMaximumSize(QSize(24, 30));
-        label_19->setText(QStringLiteral(""));
-        label_19->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_19->setScaledContents(true);
+        label_repPap_19 = new QLabel(verticalLayoutWidget);
+        label_repPap_19->setObjectName(QStringLiteral("label_repPap_19"));
+        label_repPap_19->setEnabled(true);
+        label_repPap_19->setMinimumSize(QSize(24, 30));
+        label_repPap_19->setMaximumSize(QSize(24, 30));
+        label_repPap_19->setText(QStringLiteral(""));
+        label_repPap_19->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_19->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_19);
+        horizontalLayout_71->addWidget(label_repPap_19);
 
-        label_18 = new QLabel(verticalLayoutWidget);
-        label_18->setObjectName(QStringLiteral("label_18"));
-        label_18->setEnabled(true);
-        label_18->setMinimumSize(QSize(24, 30));
-        label_18->setMaximumSize(QSize(24, 30));
-        label_18->setText(QStringLiteral(""));
-        label_18->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_18->setScaledContents(true);
+        label_repPap_20 = new QLabel(verticalLayoutWidget);
+        label_repPap_20->setObjectName(QStringLiteral("label_repPap_20"));
+        label_repPap_20->setEnabled(true);
+        label_repPap_20->setMinimumSize(QSize(24, 30));
+        label_repPap_20->setMaximumSize(QSize(24, 30));
+        label_repPap_20->setText(QStringLiteral(""));
+        label_repPap_20->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_20->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_18);
+        horizontalLayout_71->addWidget(label_repPap_20);
 
-        label_21 = new QLabel(verticalLayoutWidget);
-        label_21->setObjectName(QStringLiteral("label_21"));
-        label_21->setEnabled(true);
-        label_21->setMinimumSize(QSize(24, 30));
-        label_21->setMaximumSize(QSize(24, 30));
-        label_21->setText(QStringLiteral(""));
-        label_21->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
-        label_21->setScaledContents(true);
+        label_repPap_21 = new QLabel(verticalLayoutWidget);
+        label_repPap_21->setObjectName(QStringLiteral("label_repPap_21"));
+        label_repPap_21->setEnabled(true);
+        label_repPap_21->setMinimumSize(QSize(24, 30));
+        label_repPap_21->setMaximumSize(QSize(24, 30));
+        label_repPap_21->setText(QStringLiteral(""));
+        label_repPap_21->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_21->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_21);
+        horizontalLayout_71->addWidget(label_repPap_21);
 
         label_9 = new QLabel(verticalLayoutWidget);
         label_9->setObjectName(QStringLiteral("label_9"));
@@ -4978,16 +4978,16 @@ public:
 
         horizontalLayout_71->addWidget(label_7);
 
-        label_30 = new QLabel(verticalLayoutWidget);
-        label_30->setObjectName(QStringLiteral("label_30"));
-        label_30->setEnabled(true);
-        label_30->setMinimumSize(QSize(24, 30));
-        label_30->setMaximumSize(QSize(24, 30));
-        label_30->setText(QStringLiteral(""));
-        label_30->setPixmap(QPixmap(QString::fromUtf8("images/BW/21_B5.bmp")));
-        label_30->setScaledContents(true);
+        label_repPap_22 = new QLabel(verticalLayoutWidget);
+        label_repPap_22->setObjectName(QStringLiteral("label_repPap_22"));
+        label_repPap_22->setEnabled(true);
+        label_repPap_22->setMinimumSize(QSize(24, 30));
+        label_repPap_22->setMaximumSize(QSize(24, 30));
+        label_repPap_22->setText(QStringLiteral(""));
+        label_repPap_22->setPixmap(QPixmap(QString::fromUtf8("images/BW/21_B5.bmp")));
+        label_repPap_22->setScaledContents(true);
 
-        horizontalLayout_71->addWidget(label_30);
+        horizontalLayout_71->addWidget(label_repPap_22);
 
 
         verticalLayout_65->addLayout(horizontalLayout_71);
@@ -5103,16 +5103,16 @@ public:
 
         horizontalLayout_80->addWidget(label_47);
 
-        label_3 = new QLabel(verticalLayoutWidget_2);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setEnabled(true);
-        label_3->setMinimumSize(QSize(24, 30));
-        label_3->setMaximumSize(QSize(24, 30));
-        label_3->setText(QStringLiteral(""));
-        label_3->setPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/Icons/LCr4500.ico")));
-        label_3->setScaledContents(true);
+        label_ = new QLabel(verticalLayoutWidget_2);
+        label_->setObjectName(QStringLiteral("label_"));
+        label_->setEnabled(true);
+        label_->setMinimumSize(QSize(24, 30));
+        label_->setMaximumSize(QSize(24, 30));
+        label_->setText(QStringLiteral(""));
+        label_->setPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/Icons/LCr4500.ico")));
+        label_->setScaledContents(true);
 
-        horizontalLayout_80->addWidget(label_3);
+        horizontalLayout_80->addWidget(label_);
 
         label_48 = new QLabel(verticalLayoutWidget_2);
         label_48->setObjectName(QStringLiteral("label_48"));
@@ -5780,7 +5780,7 @@ public:
         comboBox_VarExpPatSeqSelTrigType->setCurrentIndex(0);
         comboBox_i2cAddrMode->setCurrentIndex(0);
         tabWidget_3->setCurrentIndex(1);
-        tabWidget_tasks->setCurrentIndex(1);
+        tabWidget_tasks->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

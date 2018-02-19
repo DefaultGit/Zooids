@@ -8045,7 +8045,7 @@ p, li { white-space: pre-wrap; }
                </rect>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_replicate">
                <attribute name="title">
@@ -8168,7 +8168,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_2">
+                    <widget class="QLabel" name="label_repPap_01">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8215,7 +8215,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_10">
+                    <widget class="QLabel" name="label_repPap_02">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8243,7 +8243,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_11">
+                    <widget class="QLabel" name="label_repPap_03">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8271,7 +8271,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_12">
+                    <widget class="QLabel" name="label_repPap_04">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8299,7 +8299,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_13">
+                    <widget class="QLabel" name="label_repPap_05">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8327,7 +8327,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_16">
+                    <widget class="QLabel" name="label_repPap_06">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8355,7 +8355,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_15">
+                    <widget class="QLabel" name="label_repPap_07">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8383,7 +8383,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_14">
+                    <widget class="QLabel" name="label_repPap_08">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8411,7 +8411,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_17">
+                    <widget class="QLabel" name="label_repPap_09">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8439,7 +8439,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_22">
+                    <widget class="QLabel" name="label_repPap_10">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8467,7 +8467,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_28">
+                    <widget class="QLabel" name="label_repPap_11">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8495,7 +8495,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_23">
+                    <widget class="QLabel" name="label_repPap_12">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8523,7 +8523,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_25">
+                    <widget class="QLabel" name="label_repPap_13">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8551,7 +8551,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_27">
+                    <widget class="QLabel" name="label_repPap_14">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8579,7 +8579,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_24">
+                    <widget class="QLabel" name="label_repPap_15">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8607,7 +8607,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_26">
+                    <widget class="QLabel" name="label_repPap_16">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8635,7 +8635,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_29">
+                    <widget class="QLabel" name="label_repPap_17">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8663,7 +8663,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_20">
+                    <widget class="QLabel" name="label_repPap_18">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8691,7 +8691,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_19">
+                    <widget class="QLabel" name="label_repPap_19">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8719,7 +8719,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_18">
+                    <widget class="QLabel" name="label_repPap_20">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8747,7 +8747,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_21">
+                    <widget class="QLabel" name="label_repPap_21">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8813,7 +8813,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_30">
+                    <widget class="QLabel" name="label_repPap_22">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -8990,7 +8990,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_3">
+                    <widget class="QLabel" name="label_">
                      <property name="enabled">
                       <bool>true</bool>
                      </property>
@@ -9655,7 +9655,7 @@ p, li { white-space: pre-wrap; }
                       <string notr="true"/>
                      </property>
                      <property name="pixmap">
-                      <pixmap resource="images/GreyCode/GreyCode.qrc">:/GreyCode/21_B5.bmp</pixmap>
+                      <pixmap>:/GreyCode/21_B5.bmp</pixmap>
                      </property>
                      <property name="scaledContents">
                       <bool>true</bool>
@@ -10529,7 +10529,6 @@ p, li { white-space: pre-wrap; }
  <layoutdefault spacing="6" margin="11"/>
  <resources>
   <include location="Lcr2.qrc"/>
-  <include location="images/GreyCode/GreyCode.qrc"/>
  </resources>
  <connections/>
 </ui>
