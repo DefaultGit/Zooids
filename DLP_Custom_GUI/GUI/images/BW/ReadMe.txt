@@ -1,0 +1,1 @@
+Put all Patterns that should be converted by the MatLab Script  into a 24-Bit (True Color) Picture in this Folder (Path specified in 'path_config.json' file in the folder with the main.cpp file)
