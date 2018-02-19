@@ -47,6 +47,8 @@
 
 #include <QDesktopServices>
 
+#include "QPixmap.h"
+
 #include "hidapi.h"
 
 #include "dlpc350_common.h"
@@ -831,10 +833,21 @@ void MainWindow::on_pushButton_Connect_clicked()
 
 void MainWindow::on_pushButton_statInfo_clicked()
 {
+    QPixmap pixmapTarget = QPixmap(":/new/prefix1/Icons/dmd.jpg");
+    //QPixmap pixmapTarget = QPixmap(":/new/prefix1/Icons/dmd.jpg");
+   // pixmapTarget = pixmapTarget.scaled(size-5, size-5, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    ui ->label_49 -> setPixmap(pixmapTarget);
     QString status = "0";
     if (GetDLPC350Status() == -1){
         status = "-1";
     }
+    if (pixmapTarget.isNull()){
+        status = "null";
+    }
+
+    //QPixmap pixmapTest = ui->label_49->pixmap();
+    //pixmapTest.
+    //ui->label_49->setText("haha");
     ui ->label_task1_firmware ->setText(status);
 }
 
