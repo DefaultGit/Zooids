@@ -110,11 +110,11 @@ public:
     QCheckBox *checkBox_LedPwmInvert;
     QGroupBox *groupBox_LEDEnSelect;
     QGridLayout *gridLayout;
-    QCheckBox *checkBox_GreenEnable;
     QRadioButton *radioButton_ColorDisplayAuto;
-    QCheckBox *checkBox_RedEnable;
+    QCheckBox *checkBox_GreenEnable;
     QRadioButton *radioButton_ColorDisplayManual;
     QCheckBox *checkBox_BlueEnable;
+    QCheckBox *checkBox_RedEnable;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton_GetLEDConfiguration;
     QPushButton *pushButton_SetLEDConfiguration;
@@ -722,11 +722,15 @@ public:
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_66;
     QHBoxLayout *horizontalLayout_86;
-    QRadioButton *radioButton_2;
-    QRadioButton *radioButton;
+    QRadioButton *radioButton_flashStatic;
+    QRadioButton *radioButton_flashDynamic;
+    QSpacerItem *horizontalSpacer_12;
+    QHBoxLayout *horizontalLayout_88;
+    QLabel *label_flashFW_3;
+    QLabel *label_flashDescription;
     QHBoxLayout *horizontalLayout_76;
-    QLabel *label_39;
-    QLabel *label_31;
+    QLabel *label_flashFW;
+    QLabel *label_flashFWName;
     QHBoxLayout *horizontalLayout_77;
     QLabel *label_40;
     QLabel *label_41;
@@ -1241,23 +1245,17 @@ public:
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(5, 5, 5, 5);
-        checkBox_GreenEnable = new QCheckBox(groupBox_LEDEnSelect);
-        checkBox_GreenEnable->setObjectName(QStringLiteral("checkBox_GreenEnable"));
-        checkBox_GreenEnable->setEnabled(false);
-
-        gridLayout->addWidget(checkBox_GreenEnable, 2, 1, 1, 1);
-
         radioButton_ColorDisplayAuto = new QRadioButton(groupBox_LEDEnSelect);
         radioButton_ColorDisplayAuto->setObjectName(QStringLiteral("radioButton_ColorDisplayAuto"));
         radioButton_ColorDisplayAuto->setChecked(true);
 
         gridLayout->addWidget(radioButton_ColorDisplayAuto, 0, 0, 1, 1, Qt::AlignLeft);
 
-        checkBox_RedEnable = new QCheckBox(groupBox_LEDEnSelect);
-        checkBox_RedEnable->setObjectName(QStringLiteral("checkBox_RedEnable"));
-        checkBox_RedEnable->setEnabled(false);
+        checkBox_GreenEnable = new QCheckBox(groupBox_LEDEnSelect);
+        checkBox_GreenEnable->setObjectName(QStringLiteral("checkBox_GreenEnable"));
+        checkBox_GreenEnable->setEnabled(false);
 
-        gridLayout->addWidget(checkBox_RedEnable, 1, 1, 1, 1);
+        gridLayout->addWidget(checkBox_GreenEnable, 2, 1, 1, 1);
 
         radioButton_ColorDisplayManual = new QRadioButton(groupBox_LEDEnSelect);
         radioButton_ColorDisplayManual->setObjectName(QStringLiteral("radioButton_ColorDisplayManual"));
@@ -1269,6 +1267,12 @@ public:
         checkBox_BlueEnable->setEnabled(false);
 
         gridLayout->addWidget(checkBox_BlueEnable, 3, 1, 1, 1);
+
+        checkBox_RedEnable = new QCheckBox(groupBox_LEDEnSelect);
+        checkBox_RedEnable->setObjectName(QStringLiteral("checkBox_RedEnable"));
+        checkBox_RedEnable->setEnabled(false);
+
+        gridLayout->addWidget(checkBox_RedEnable, 1, 1, 1, 1);
 
 
         horizontalLayout_2->addWidget(groupBox_LEDEnSelect);
@@ -4611,7 +4615,7 @@ public:
         pushButton_statInfo->setGeometry(QRect(1370, 170, 112, 34));
         horizontalLayoutWidget = new QWidget(tab_SwarmDescent);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(1070, 300, 451, 80));
+        horizontalLayoutWidget->setGeometry(QRect(1090, 300, 451, 80));
         horizontalLayout_34 = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout_34->setSpacing(6);
         horizontalLayout_34->setContentsMargins(11, 11, 11, 11);
@@ -4728,6 +4732,7 @@ public:
         label_repPap_01->setEnabled(true);
         label_repPap_01->setMinimumSize(QSize(24, 30));
         label_repPap_01->setMaximumSize(QSize(24, 30));
+        label_repPap_01->setStyleSheet(QStringLiteral("border: 1px solid black;"));
         label_repPap_01->setText(QStringLiteral(""));
         label_repPap_01->setPixmap(QPixmap(QString::fromUtf8("images/BW/00_G0.bmp")));
         label_repPap_01->setScaledContents(true);
@@ -4983,6 +4988,7 @@ public:
         label_repPap_22->setEnabled(true);
         label_repPap_22->setMinimumSize(QSize(24, 30));
         label_repPap_22->setMaximumSize(QSize(24, 30));
+        label_repPap_22->setStyleSheet(QStringLiteral("border: 1px solid black;"));
         label_repPap_22->setText(QStringLiteral(""));
         label_repPap_22->setPixmap(QPixmap(QString::fromUtf8("images/BW/21_B5.bmp")));
         label_repPap_22->setScaledContents(true);
@@ -5006,33 +5012,53 @@ public:
         horizontalLayout_86 = new QHBoxLayout();
         horizontalLayout_86->setSpacing(6);
         horizontalLayout_86->setObjectName(QStringLiteral("horizontalLayout_86"));
-        radioButton_2 = new QRadioButton(verticalLayoutWidget_2);
-        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
-        radioButton_2->setChecked(true);
-        radioButton_2->setAutoExclusive(true);
+        radioButton_flashStatic = new QRadioButton(verticalLayoutWidget_2);
+        radioButton_flashStatic->setObjectName(QStringLiteral("radioButton_flashStatic"));
+        radioButton_flashStatic->setChecked(true);
+        radioButton_flashStatic->setAutoExclusive(true);
 
-        horizontalLayout_86->addWidget(radioButton_2);
+        horizontalLayout_86->addWidget(radioButton_flashStatic);
 
-        radioButton = new QRadioButton(verticalLayoutWidget_2);
-        radioButton->setObjectName(QStringLiteral("radioButton"));
+        radioButton_flashDynamic = new QRadioButton(verticalLayoutWidget_2);
+        radioButton_flashDynamic->setObjectName(QStringLiteral("radioButton_flashDynamic"));
 
-        horizontalLayout_86->addWidget(radioButton);
+        horizontalLayout_86->addWidget(radioButton_flashDynamic);
+
+        horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_86->addItem(horizontalSpacer_12);
 
 
         verticalLayout_66->addLayout(horizontalLayout_86);
 
+        horizontalLayout_88 = new QHBoxLayout();
+        horizontalLayout_88->setSpacing(6);
+        horizontalLayout_88->setObjectName(QStringLiteral("horizontalLayout_88"));
+        label_flashFW_3 = new QLabel(verticalLayoutWidget_2);
+        label_flashFW_3->setObjectName(QStringLiteral("label_flashFW_3"));
+
+        horizontalLayout_88->addWidget(label_flashFW_3);
+
+        label_flashDescription = new QLabel(verticalLayoutWidget_2);
+        label_flashDescription->setObjectName(QStringLiteral("label_flashDescription"));
+
+        horizontalLayout_88->addWidget(label_flashDescription);
+
+
+        verticalLayout_66->addLayout(horizontalLayout_88);
+
         horizontalLayout_76 = new QHBoxLayout();
         horizontalLayout_76->setSpacing(6);
         horizontalLayout_76->setObjectName(QStringLiteral("horizontalLayout_76"));
-        label_39 = new QLabel(verticalLayoutWidget_2);
-        label_39->setObjectName(QStringLiteral("label_39"));
+        label_flashFW = new QLabel(verticalLayoutWidget_2);
+        label_flashFW->setObjectName(QStringLiteral("label_flashFW"));
 
-        horizontalLayout_76->addWidget(label_39);
+        horizontalLayout_76->addWidget(label_flashFW);
 
-        label_31 = new QLabel(verticalLayoutWidget_2);
-        label_31->setObjectName(QStringLiteral("label_31"));
+        label_flashFWName = new QLabel(verticalLayoutWidget_2);
+        label_flashFWName->setObjectName(QStringLiteral("label_flashFWName"));
 
-        horizontalLayout_76->addWidget(label_31);
+        horizontalLayout_76->addWidget(label_flashFWName);
 
 
         verticalLayout_66->addLayout(horizontalLayout_76);
@@ -5775,12 +5801,12 @@ public:
         retranslateUi(MainWindow);
 
         tabWidget->setCurrentIndex(5);
-        tabWidget_2->setCurrentIndex(5);
+        tabWidget_2->setCurrentIndex(0);
         comboBox_PatSeqSelTrigType->setCurrentIndex(0);
         comboBox_VarExpPatSeqSelTrigType->setCurrentIndex(0);
         comboBox_i2cAddrMode->setCurrentIndex(0);
         tabWidget_3->setCurrentIndex(1);
-        tabWidget_tasks->setCurrentIndex(0);
+        tabWidget_tasks->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -5853,11 +5879,11 @@ public:
 #endif // QT_NO_WHATSTHIS
         checkBox_LedPwmInvert->setText(QApplication::translate("MainWindow", "Invert PWMs", 0));
         groupBox_LEDEnSelect->setTitle(QApplication::translate("MainWindow", "LED Selection", 0));
-        checkBox_GreenEnable->setText(QApplication::translate("MainWindow", "Green", 0));
         radioButton_ColorDisplayAuto->setText(QApplication::translate("MainWindow", "Automatic", 0));
-        checkBox_RedEnable->setText(QApplication::translate("MainWindow", "Red", 0));
+        checkBox_GreenEnable->setText(QApplication::translate("MainWindow", "Green", 0));
         radioButton_ColorDisplayManual->setText(QApplication::translate("MainWindow", "Manual", 0));
         checkBox_BlueEnable->setText(QApplication::translate("MainWindow", "Blue", 0));
+        checkBox_RedEnable->setText(QApplication::translate("MainWindow", "Red", 0));
         pushButton_GetLEDConfiguration->setText(QApplication::translate("MainWindow", "Get", 0));
         pushButton_SetLEDConfiguration->setText(QApplication::translate("MainWindow", "Set", 0));
         label_task1_firmware->setText(QApplication::translate("MainWindow", "In pattern mode, buttons can change this text", 0));
@@ -6661,17 +6687,39 @@ public:
         label_35->setText(QApplication::translate("MainWindow", "Input: ", 0));
         label_36->setText(QApplication::translate("MainWindow", "Flash Memory", 0));
         label_37->setText(QApplication::translate("MainWindow", "Pattern Periode: ", 0));
-        label_38->setText(QApplication::translate("MainWindow", "253 us", 0));
+        label_38->setText(QApplication::translate("MainWindow", "235 us", 0));
         label_5->setText(QApplication::translate("MainWindow", "Pattern Sequence: ", 0));
         label_6->setText(QApplication::translate("MainWindow", "1x", 0));
         label_8->setText(QApplication::translate("MainWindow", ";", 0));
+        label_repPap_02->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_03->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_04->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_05->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_06->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_07->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_08->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_09->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_10->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_11->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_12->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_13->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_14->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_15->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_16->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_17->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_18->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_19->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_20->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_21->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
         label_9->setText(QApplication::translate("MainWindow", ";", 0));
         label_7->setText(QApplication::translate("MainWindow", "20x", 0));
         tabWidget_tasks->setTabText(tabWidget_tasks->indexOf(tab_replicate), QApplication::translate("MainWindow", "Replecate Paper", 0));
-        radioButton_2->setText(QApplication::translate("MainWindow", "Static", 0));
-        radioButton->setText(QApplication::translate("MainWindow", "Dynamic", 0));
-        label_39->setText(QApplication::translate("MainWindow", "Firmware: ", 0));
-        label_31->setText(QString());
+        radioButton_flashStatic->setText(QApplication::translate("MainWindow", "Static", 0));
+        radioButton_flashDynamic->setText(QApplication::translate("MainWindow", "Dynamic", 0));
+        label_flashFW_3->setText(QApplication::translate("MainWindow", "Description:", 0));
+        label_flashDescription->setText(QApplication::translate("MainWindow", "Image 1 and 2 in Flash prejected (in order) at max speed", 0));
+        label_flashFW->setText(QApplication::translate("MainWindow", "Firmware: ", 0));
+        label_flashFWName->setText(QApplication::translate("MainWindow", "FlashStatic", 0));
         label_40->setText(QApplication::translate("MainWindow", "Mode: ", 0));
         label_41->setText(QApplication::translate("MainWindow", "Pattern Sequence", 0));
         label_42->setText(QApplication::translate("MainWindow", "Input: ", 0));

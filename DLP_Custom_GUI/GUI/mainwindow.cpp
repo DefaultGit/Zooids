@@ -74,6 +74,8 @@
 #include <QTimer>
 #include <QTime>
 
+#include <QJsonDocument>
+
 #ifndef DEBUG_LOG_EN
 //Enable MACRO to see debug logs
 //#define DEBUG_LOG_EN
@@ -263,6 +265,8 @@ static int My_ImgeGet(void *Param, unsigned int X, unsigned int Y, \
     return 0;
 }
 
+
+
 bool cancelTask1 = false;
 const QString FIRMWARE_PATH = "../GUI/firmware/base.bin";
 const QString INI_PATH = "../GUI/ini/default.ini";
@@ -425,6 +429,8 @@ MainWindow::MainWindow(QWidget *parent) :
     m_usbPollTimer->setInterval(2000);
     connect(m_usbPollTimer, SIGNAL(timeout()), this, SLOT(timerTimeout()));
     m_usbPollTimer->start();
+
+    setPixmaps();
 }
 
 MainWindow::~MainWindow()
@@ -831,24 +837,82 @@ void MainWindow::on_pushButton_Connect_clicked()
 
 // ~~~~~~~~~~ Task 1 ~~~~~~~~~~ //
 
+void MainWindow::setPixmaps(){
+    //Hardcoded for now, until JSON parser is implemented
+    ui ->label_repPap_01 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/00_G0.bmp"));
+    ui ->label_repPap_02 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/01_G1.bmp"));
+    ui ->label_repPap_03 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/02_G2.bmp"));
+    ui ->label_repPap_04 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/03_G3.bmp"));
+    ui ->label_repPap_05 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/04_G4.bmp"));
+    ui ->label_repPap_06 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/05_G5.bmp"));
+    ui ->label_repPap_07 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/06_G6.bmp"));
+    ui ->label_repPap_08 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/07_G7.bmp"));
+    ui ->label_repPap_09 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/08_R0.bmp"));
+    ui ->label_repPap_10 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/09_R1.bmp"));
+    ui ->label_repPap_11 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/10_R2.bmp"));
+    ui ->label_repPap_12 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/11_R3.bmp"));
+    ui ->label_repPap_13 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/12_R4.bmp"));
+    ui ->label_repPap_14 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/13_R5.bmp"));
+    ui ->label_repPap_15 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/14_R6.bmp"));
+    ui ->label_repPap_16 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/15_R7.bmp"));
+    ui ->label_repPap_17 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/16_B0.bmp"));
+    ui ->label_repPap_18 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/17_B1.bmp"));
+    ui ->label_repPap_19 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/18_B2.bmp"));
+    ui ->label_repPap_20 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/19_B3.bmp"));
+    ui ->label_repPap_21 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/20_B4.bmp"));
+    ui ->label_repPap_22 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/21_B5.bmp"));
+
+}
+
 void MainWindow::on_pushButton_statInfo_clicked()
 {
-    QPixmap pixmapTarget = QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/01_G1.bmp");
+    //https://forum.qt.io/topic/59691/solved-parse-json-in-qt5/7
+    //JSON
+    //QFile jsonFile;
+    //jsonFile.setFileName("./path_config.json");
+    //if(false == jsonFile.open(QIODevice::ReadOnly | QIODevice::Text)){ <--- Error here
+    //
+    //   ui ->label_task1_firmware ->setText("not opened");
+    //}
+
+    //QJsonParseError jsonError;
+    //QJsonDocument flowerJson = QJsonDocument::fromJson(jsonFile.readAll(),&jsonError);
+    //if (jsonError.error != QJsonParseError::NoError){
+    //    //ui ->label_task1_firmware ->setText("error");
+    //    qDebug() << jsonError.errorString();
+    //}
+    //QList<QVariant> list = flowerJson.toVariant().toList();
+    //QMap<QString, QVariant> map = list[0].toMap();
+    //qDebug() << map["name"].toString();
+
+
+    //QPixmap pixmapTarget = QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/07_G7.bmp");
     //QPixmap pixmapTarget = QPixmap(":/new/prefix1/Icons/dmd.jpg");
    // pixmapTarget = pixmapTarget.scaled(size-5, size-5, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    ui ->label_49 -> setPixmap(pixmapTarget);
+    //ui ->label_repPap_01 -> setPixmap(pixmapTarget);
+
     QString status = "0";
     if (GetDLPC350Status() == -1){
         status = "-1";
     }
-    if (pixmapTarget.isNull()){
+    /*if (flowerJson.isNull()){
         status = "null";
-    }
+    }*/
 
     //QPixmap pixmapTest = ui->label_49->pixmap();
     //pixmapTest.
     //ui->label_49->setText("haha");
     ui ->label_task1_firmware ->setText(status);
+}
+
+void MainWindow::on_radioButton_flashStatic_clicked(){
+    ui->label_flashFWName->setText("FlashStatic");
+    ui->label_flashDescription->setText("Image 1 and 2 in Flash prejected (in order) at max speed");
+}
+
+void MainWindow::on_radioButton_flashDynamic_clicked(){
+    ui->label_flashFWName->setText("FlashDynamic");
+    ui->label_flashDescription->setText("Custom patterns and custom sequence");
 }
 
 void MainWindow::on_pushButton_task1_firmware_clicked()

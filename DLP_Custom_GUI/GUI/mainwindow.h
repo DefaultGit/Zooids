@@ -78,6 +78,9 @@ private slots:
     void timerTimeout(void);
     void on_checkBox_updateStatus_toggled(bool checked);
 
+    void setPixmaps();
+    void on_radioButton_flashStatic_clicked();
+    void on_radioButton_flashDynamic_clicked();
     void on_pushButton_statInfo_clicked();
     void on_pushButton_task1_firmware_clicked();
     void on_pushButton_task2_firmware_make_clicked();
