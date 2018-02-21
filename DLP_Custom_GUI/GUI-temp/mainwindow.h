@@ -78,6 +78,20 @@ private slots:
     void timerTimeout(void);
     void on_checkBox_updateStatus_toggled(bool checked);
 
+    void setPixmaps();
+    void on_radioButton_flashStatic_clicked();
+    void on_radioButton_flashDynamic_clicked();
+    void on_pushButton_statInfo_clicked();
+    void on_pushButton_task1_firmware_clicked();
+    void on_pushButton_task2_firmware_make_clicked();
+    void on_pushButton_task1_pattern_clicked();
+    void applySolution_task1();
+    void FWSelectFWBin_task2(QString fileName);
+    void FWSelectIniFile(QString fileName);
+    void FWAddSplashImage(QString fileName);
+    void FWBuildNewFrmwImage(QString fileName);
+    QString* getBMPs();
+
     void on_pushButton_Connect_clicked();
     void on_pushButton_Reset_clicked();
     void on_radioButton_VideoMode_clicked();

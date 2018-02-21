@@ -18,7 +18,8 @@ SOURCES +=  main.cpp\
             dlpc350_usb.cpp \
             dlpc350_api.cpp \
             dlpc350_BMPParser.cpp \
-            dlpc350_firmware.cpp
+            dlpc350_firmware.cpp \
+    show_vlc_video.cpp
 
 HEADERS  += mainwindow.h \
             dlpc350_usb.h \
@@ -29,7 +30,8 @@ HEADERS  += mainwindow.h \
             dlpc350_common.h \
             dlpc350_flashDevice.h \
             Helper.h \
-            dlpc350_error.h
+            dlpc350_error.h \
+    show_vlc_video.h
 
 INCLUDEPATH += "hidapi-master\\hidapi"
 
@@ -59,4 +61,26 @@ INCLUDEPATH += ../GUI/hidapi-master/hidapi
 DEPENDPATH += ../GUI/hidapi-master/hidapi
 
 OTHER_FILES +=  icons\LCr4500.rc \
-                icons\LCr4500.ico
+                icons\LCr4500.ico \
+    images/GreyCode/00_G0.bmp \
+    images/GreyCode/01_G1.bmp \
+    images/GreyCode/02_G2.bmp \
+    images/GreyCode/03_G3.bmp \
+    images/GreyCode/04_G4.bmp \
+    images/GreyCode/05_G5.bmp \
+    images/GreyCode/06_G6.bmp \
+    images/GreyCode/07_G7.bmp \
+    images/GreyCode/08_R0.bmp \
+    images/GreyCode/09_R1.bmp \
+    images/GreyCode/10_R2.bmp \
+    images/GreyCode/11_R3.bmp \
+    images/GreyCode/12_R4.bmp \
+    images/GreyCode/13_R5.bmp \
+    images/GreyCode/14_R6.bmp \
+    images/GreyCode/15_R7.bmp \
+    images/GreyCode/16_B0.bmp \
+    images/GreyCode/17_B1.bmp \
+    images/GreyCode/18_B2.bmp \
+    images/GreyCode/19_B3.bmp \
+    images/GreyCode/20_B4.bmp \
+    images/GreyCode/21_B5.bmp
