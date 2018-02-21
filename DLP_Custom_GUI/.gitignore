@@ -1,5 +1,6 @@
 # exclude Tests
 Test/
+Original/
 ~$*.docx
 ~$*.xlsx
 ~$*.pptx
