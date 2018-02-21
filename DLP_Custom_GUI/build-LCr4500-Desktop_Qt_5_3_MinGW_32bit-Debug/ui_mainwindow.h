@@ -675,6 +675,57 @@ public:
     QPushButton *pushButton_task2_firmware_make;
     QLineEdit *lineEdit_task2_FWtag;
     QTabWidget *tabWidget_tasks;
+    QWidget *tab_paper;
+    QWidget *verticalLayoutWidget_5;
+    QVBoxLayout *verticalLayout_68;
+    QHBoxLayout *horizontalLayout_87;
+    QLabel *label_39;
+    QLabel *label_10;
+    QHBoxLayout *horizontalLayout_89;
+    QLabel *label_107;
+    QLabel *label_108;
+    QHBoxLayout *horizontalLayout_90;
+    QLabel *label_109;
+    QLabel *label_110;
+    QHBoxLayout *horizontalLayout_91;
+    QLabel *label_111;
+    QLabel *label_112;
+    QHBoxLayout *horizontalLayout_92;
+    QLabel *label_11;
+    QLabel *label_12;
+    QLabel *label_repPap_2;
+    QLabel *label_13;
+    QLabel *label_repPap_3;
+    QLabel *label_repPap_4;
+    QLabel *label_repPap_5;
+    QLabel *label_repPap_6;
+    QLabel *label_repPap_7;
+    QLabel *label_repPap_8;
+    QLabel *label_repPap_9;
+    QLabel *label_repPap_23;
+    QLabel *label_repPap_24;
+    QLabel *label_repPap_25;
+    QLabel *label_repPap_26;
+    QLabel *label_repPap_27;
+    QLabel *label_repPap_28;
+    QLabel *label_repPap_29;
+    QLabel *label_repPap_30;
+    QLabel *label_repPap_31;
+    QLabel *label_repPap_32;
+    QLabel *label_repPap_33;
+    QLabel *label_repPap_34;
+    QLabel *label_repPap_35;
+    QLabel *label_14;
+    QLabel *label_15;
+    QLabel *label_repPap_36;
+    QHBoxLayout *horizontalLayout_37;
+    QSpacerItem *horizontalSpacer_13;
+    QVBoxLayout *verticalLayout_43;
+    QPushButton *pushButton_updateFirmware_2;
+    QPushButton *pushButton_task1_pattern_2;
+    QPushButton *pushButton_task1_pattern_3;
+    QPushButton *pushButton_task1_pattern_4;
+    QSpacerItem *horizontalSpacer_18;
     QWidget *tab_replicate;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout_65;
@@ -718,6 +769,14 @@ public:
     QLabel *label_9;
     QLabel *label_7;
     QLabel *label_repPap_22;
+    QHBoxLayout *horizontalLayout_43;
+    QSpacerItem *horizontalSpacer_23;
+    QVBoxLayout *verticalLayout_45;
+    QPushButton *pushButton_updateFirmware_3;
+    QPushButton *pushButton_task1_pattern_5;
+    QPushButton *pushButton_task1_pattern_6;
+    QPushButton *pushButton_task1_pattern_7;
+    QSpacerItem *horizontalSpacer_24;
     QWidget *tab_flash;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_66;
@@ -768,6 +827,8 @@ public:
     QLabel *label_69;
     QLabel *label_70;
     QLabel *label_71;
+    QPushButton *pushButton_flashMakeFW;
+    QPushButton *pushButton_flashOpenDir;
     QWidget *tab_video;
     QWidget *verticalLayoutWidget_3;
     QVBoxLayout *verticalLayout_67;
@@ -4635,11 +4696,419 @@ public:
         tabWidget_tasks = new QTabWidget(tab_SwarmDescent);
         tabWidget_tasks->setObjectName(QStringLiteral("tabWidget_tasks"));
         tabWidget_tasks->setGeometry(QRect(10, 10, 1061, 651));
+        tab_paper = new QWidget();
+        tab_paper->setObjectName(QStringLiteral("tab_paper"));
+        verticalLayoutWidget_5 = new QWidget(tab_paper);
+        verticalLayoutWidget_5->setObjectName(QStringLiteral("verticalLayoutWidget_5"));
+        verticalLayoutWidget_5->setGeometry(QRect(10, 10, 1001, 359));
+        verticalLayout_68 = new QVBoxLayout(verticalLayoutWidget_5);
+        verticalLayout_68->setSpacing(6);
+        verticalLayout_68->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_68->setObjectName(QStringLiteral("verticalLayout_68"));
+        verticalLayout_68->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_87 = new QHBoxLayout();
+        horizontalLayout_87->setSpacing(6);
+        horizontalLayout_87->setObjectName(QStringLiteral("horizontalLayout_87"));
+        label_39 = new QLabel(verticalLayoutWidget_5);
+        label_39->setObjectName(QStringLiteral("label_39"));
+
+        horizontalLayout_87->addWidget(label_39);
+
+        label_10 = new QLabel(verticalLayoutWidget_5);
+        label_10->setObjectName(QStringLiteral("label_10"));
+
+        horizontalLayout_87->addWidget(label_10);
+
+
+        verticalLayout_68->addLayout(horizontalLayout_87);
+
+        horizontalLayout_89 = new QHBoxLayout();
+        horizontalLayout_89->setSpacing(6);
+        horizontalLayout_89->setObjectName(QStringLiteral("horizontalLayout_89"));
+        label_107 = new QLabel(verticalLayoutWidget_5);
+        label_107->setObjectName(QStringLiteral("label_107"));
+
+        horizontalLayout_89->addWidget(label_107);
+
+        label_108 = new QLabel(verticalLayoutWidget_5);
+        label_108->setObjectName(QStringLiteral("label_108"));
+
+        horizontalLayout_89->addWidget(label_108);
+
+
+        verticalLayout_68->addLayout(horizontalLayout_89);
+
+        horizontalLayout_90 = new QHBoxLayout();
+        horizontalLayout_90->setSpacing(6);
+        horizontalLayout_90->setObjectName(QStringLiteral("horizontalLayout_90"));
+        label_109 = new QLabel(verticalLayoutWidget_5);
+        label_109->setObjectName(QStringLiteral("label_109"));
+
+        horizontalLayout_90->addWidget(label_109);
+
+        label_110 = new QLabel(verticalLayoutWidget_5);
+        label_110->setObjectName(QStringLiteral("label_110"));
+
+        horizontalLayout_90->addWidget(label_110);
+
+
+        verticalLayout_68->addLayout(horizontalLayout_90);
+
+        horizontalLayout_91 = new QHBoxLayout();
+        horizontalLayout_91->setSpacing(6);
+        horizontalLayout_91->setObjectName(QStringLiteral("horizontalLayout_91"));
+        label_111 = new QLabel(verticalLayoutWidget_5);
+        label_111->setObjectName(QStringLiteral("label_111"));
+
+        horizontalLayout_91->addWidget(label_111);
+
+        label_112 = new QLabel(verticalLayoutWidget_5);
+        label_112->setObjectName(QStringLiteral("label_112"));
+
+        horizontalLayout_91->addWidget(label_112);
+
+
+        verticalLayout_68->addLayout(horizontalLayout_91);
+
+        horizontalLayout_92 = new QHBoxLayout();
+        horizontalLayout_92->setSpacing(6);
+        horizontalLayout_92->setObjectName(QStringLiteral("horizontalLayout_92"));
+        label_11 = new QLabel(verticalLayoutWidget_5);
+        label_11->setObjectName(QStringLiteral("label_11"));
+        sizePolicy.setHeightForWidth(label_11->sizePolicy().hasHeightForWidth());
+        label_11->setSizePolicy(sizePolicy);
+
+        horizontalLayout_92->addWidget(label_11);
+
+        label_12 = new QLabel(verticalLayoutWidget_5);
+        label_12->setObjectName(QStringLiteral("label_12"));
+        sizePolicy.setHeightForWidth(label_12->sizePolicy().hasHeightForWidth());
+        label_12->setSizePolicy(sizePolicy);
+        label_12->setMaximumSize(QSize(21, 16777215));
+
+        horizontalLayout_92->addWidget(label_12);
+
+        label_repPap_2 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_2->setObjectName(QStringLiteral("label_repPap_2"));
+        label_repPap_2->setEnabled(true);
+        label_repPap_2->setMinimumSize(QSize(24, 30));
+        label_repPap_2->setMaximumSize(QSize(24, 30));
+        label_repPap_2->setStyleSheet(QStringLiteral("border: 1px solid black;"));
+        label_repPap_2->setText(QStringLiteral(""));
+        label_repPap_2->setPixmap(QPixmap(QString::fromUtf8("images/BW/00_G0.bmp")));
+        label_repPap_2->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_2);
+
+        label_13 = new QLabel(verticalLayoutWidget_5);
+        label_13->setObjectName(QStringLiteral("label_13"));
+        sizePolicy.setHeightForWidth(label_13->sizePolicy().hasHeightForWidth());
+        label_13->setSizePolicy(sizePolicy);
+        label_13->setMaximumSize(QSize(10, 16777215));
+
+        horizontalLayout_92->addWidget(label_13);
+
+        label_repPap_3 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_3->setObjectName(QStringLiteral("label_repPap_3"));
+        label_repPap_3->setEnabled(true);
+        label_repPap_3->setMinimumSize(QSize(24, 30));
+        label_repPap_3->setMaximumSize(QSize(24, 30));
+        label_repPap_3->setText(QStringLiteral(""));
+        label_repPap_3->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_3->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_3);
+
+        label_repPap_4 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_4->setObjectName(QStringLiteral("label_repPap_4"));
+        label_repPap_4->setEnabled(true);
+        label_repPap_4->setMinimumSize(QSize(24, 30));
+        label_repPap_4->setMaximumSize(QSize(24, 30));
+        label_repPap_4->setText(QStringLiteral(""));
+        label_repPap_4->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_4->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_4);
+
+        label_repPap_5 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_5->setObjectName(QStringLiteral("label_repPap_5"));
+        label_repPap_5->setEnabled(true);
+        label_repPap_5->setMinimumSize(QSize(24, 30));
+        label_repPap_5->setMaximumSize(QSize(24, 30));
+        label_repPap_5->setText(QStringLiteral(""));
+        label_repPap_5->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_5->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_5);
+
+        label_repPap_6 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_6->setObjectName(QStringLiteral("label_repPap_6"));
+        label_repPap_6->setEnabled(true);
+        label_repPap_6->setMinimumSize(QSize(24, 30));
+        label_repPap_6->setMaximumSize(QSize(24, 30));
+        label_repPap_6->setText(QStringLiteral(""));
+        label_repPap_6->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_6->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_6);
+
+        label_repPap_7 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_7->setObjectName(QStringLiteral("label_repPap_7"));
+        label_repPap_7->setEnabled(true);
+        label_repPap_7->setMinimumSize(QSize(24, 30));
+        label_repPap_7->setMaximumSize(QSize(24, 30));
+        label_repPap_7->setText(QStringLiteral(""));
+        label_repPap_7->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_7->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_7);
+
+        label_repPap_8 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_8->setObjectName(QStringLiteral("label_repPap_8"));
+        label_repPap_8->setEnabled(true);
+        label_repPap_8->setMinimumSize(QSize(24, 30));
+        label_repPap_8->setMaximumSize(QSize(24, 30));
+        label_repPap_8->setText(QStringLiteral(""));
+        label_repPap_8->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_8->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_8);
+
+        label_repPap_9 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_9->setObjectName(QStringLiteral("label_repPap_9"));
+        label_repPap_9->setEnabled(true);
+        label_repPap_9->setMinimumSize(QSize(24, 30));
+        label_repPap_9->setMaximumSize(QSize(24, 30));
+        label_repPap_9->setText(QStringLiteral(""));
+        label_repPap_9->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_9->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_9);
+
+        label_repPap_23 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_23->setObjectName(QStringLiteral("label_repPap_23"));
+        label_repPap_23->setEnabled(true);
+        label_repPap_23->setMinimumSize(QSize(24, 30));
+        label_repPap_23->setMaximumSize(QSize(24, 30));
+        label_repPap_23->setText(QStringLiteral(""));
+        label_repPap_23->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_23->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_23);
+
+        label_repPap_24 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_24->setObjectName(QStringLiteral("label_repPap_24"));
+        label_repPap_24->setEnabled(true);
+        label_repPap_24->setMinimumSize(QSize(24, 30));
+        label_repPap_24->setMaximumSize(QSize(24, 30));
+        label_repPap_24->setText(QStringLiteral(""));
+        label_repPap_24->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_24->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_24);
+
+        label_repPap_25 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_25->setObjectName(QStringLiteral("label_repPap_25"));
+        label_repPap_25->setEnabled(true);
+        label_repPap_25->setMinimumSize(QSize(24, 30));
+        label_repPap_25->setMaximumSize(QSize(24, 30));
+        label_repPap_25->setText(QStringLiteral(""));
+        label_repPap_25->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_25->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_25);
+
+        label_repPap_26 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_26->setObjectName(QStringLiteral("label_repPap_26"));
+        label_repPap_26->setEnabled(true);
+        label_repPap_26->setMinimumSize(QSize(24, 30));
+        label_repPap_26->setMaximumSize(QSize(24, 30));
+        label_repPap_26->setText(QStringLiteral(""));
+        label_repPap_26->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_26->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_26);
+
+        label_repPap_27 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_27->setObjectName(QStringLiteral("label_repPap_27"));
+        label_repPap_27->setEnabled(true);
+        label_repPap_27->setMinimumSize(QSize(24, 30));
+        label_repPap_27->setMaximumSize(QSize(24, 30));
+        label_repPap_27->setText(QStringLiteral(""));
+        label_repPap_27->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_27->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_27);
+
+        label_repPap_28 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_28->setObjectName(QStringLiteral("label_repPap_28"));
+        label_repPap_28->setEnabled(true);
+        label_repPap_28->setMinimumSize(QSize(24, 30));
+        label_repPap_28->setMaximumSize(QSize(24, 30));
+        label_repPap_28->setText(QStringLiteral(""));
+        label_repPap_28->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_28->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_28);
+
+        label_repPap_29 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_29->setObjectName(QStringLiteral("label_repPap_29"));
+        label_repPap_29->setEnabled(true);
+        label_repPap_29->setMinimumSize(QSize(24, 30));
+        label_repPap_29->setMaximumSize(QSize(24, 30));
+        label_repPap_29->setText(QStringLiteral(""));
+        label_repPap_29->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_29->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_29);
+
+        label_repPap_30 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_30->setObjectName(QStringLiteral("label_repPap_30"));
+        label_repPap_30->setEnabled(true);
+        label_repPap_30->setMinimumSize(QSize(24, 30));
+        label_repPap_30->setMaximumSize(QSize(24, 30));
+        label_repPap_30->setText(QStringLiteral(""));
+        label_repPap_30->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_30->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_30);
+
+        label_repPap_31 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_31->setObjectName(QStringLiteral("label_repPap_31"));
+        label_repPap_31->setEnabled(true);
+        label_repPap_31->setMinimumSize(QSize(24, 30));
+        label_repPap_31->setMaximumSize(QSize(24, 30));
+        label_repPap_31->setText(QStringLiteral(""));
+        label_repPap_31->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_31->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_31);
+
+        label_repPap_32 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_32->setObjectName(QStringLiteral("label_repPap_32"));
+        label_repPap_32->setEnabled(true);
+        label_repPap_32->setMinimumSize(QSize(24, 30));
+        label_repPap_32->setMaximumSize(QSize(24, 30));
+        label_repPap_32->setText(QStringLiteral(""));
+        label_repPap_32->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_32->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_32);
+
+        label_repPap_33 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_33->setObjectName(QStringLiteral("label_repPap_33"));
+        label_repPap_33->setEnabled(true);
+        label_repPap_33->setMinimumSize(QSize(24, 30));
+        label_repPap_33->setMaximumSize(QSize(24, 30));
+        label_repPap_33->setText(QStringLiteral(""));
+        label_repPap_33->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_33->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_33);
+
+        label_repPap_34 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_34->setObjectName(QStringLiteral("label_repPap_34"));
+        label_repPap_34->setEnabled(true);
+        label_repPap_34->setMinimumSize(QSize(24, 30));
+        label_repPap_34->setMaximumSize(QSize(24, 30));
+        label_repPap_34->setText(QStringLiteral(""));
+        label_repPap_34->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_34->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_34);
+
+        label_repPap_35 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_35->setObjectName(QStringLiteral("label_repPap_35"));
+        label_repPap_35->setEnabled(true);
+        label_repPap_35->setMinimumSize(QSize(24, 30));
+        label_repPap_35->setMaximumSize(QSize(24, 30));
+        label_repPap_35->setText(QStringLiteral(""));
+        label_repPap_35->setPixmap(QPixmap(QString::fromUtf8("images/BW/05_G5.bmp")));
+        label_repPap_35->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_35);
+
+        label_14 = new QLabel(verticalLayoutWidget_5);
+        label_14->setObjectName(QStringLiteral("label_14"));
+        sizePolicy.setHeightForWidth(label_14->sizePolicy().hasHeightForWidth());
+        label_14->setSizePolicy(sizePolicy);
+        label_14->setMaximumSize(QSize(10, 16777215));
+
+        horizontalLayout_92->addWidget(label_14);
+
+        label_15 = new QLabel(verticalLayoutWidget_5);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        sizePolicy.setHeightForWidth(label_15->sizePolicy().hasHeightForWidth());
+        label_15->setSizePolicy(sizePolicy);
+        label_15->setMaximumSize(QSize(27, 16777215));
+
+        horizontalLayout_92->addWidget(label_15);
+
+        label_repPap_36 = new QLabel(verticalLayoutWidget_5);
+        label_repPap_36->setObjectName(QStringLiteral("label_repPap_36"));
+        label_repPap_36->setEnabled(true);
+        label_repPap_36->setMinimumSize(QSize(24, 30));
+        label_repPap_36->setMaximumSize(QSize(24, 30));
+        label_repPap_36->setStyleSheet(QStringLiteral("border: 1px solid black;"));
+        label_repPap_36->setText(QStringLiteral(""));
+        label_repPap_36->setPixmap(QPixmap(QString::fromUtf8("images/BW/21_B5.bmp")));
+        label_repPap_36->setScaledContents(true);
+
+        horizontalLayout_92->addWidget(label_repPap_36);
+
+
+        verticalLayout_68->addLayout(horizontalLayout_92);
+
+        horizontalLayout_37 = new QHBoxLayout();
+        horizontalLayout_37->setSpacing(6);
+        horizontalLayout_37->setObjectName(QStringLiteral("horizontalLayout_37"));
+        horizontalSpacer_13 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_37->addItem(horizontalSpacer_13);
+
+        verticalLayout_43 = new QVBoxLayout();
+        verticalLayout_43->setSpacing(6);
+        verticalLayout_43->setObjectName(QStringLiteral("verticalLayout_43"));
+        pushButton_updateFirmware_2 = new QPushButton(verticalLayoutWidget_5);
+        pushButton_updateFirmware_2->setObjectName(QStringLiteral("pushButton_updateFirmware_2"));
+        pushButton_updateFirmware_2->setEnabled(true);
+
+        verticalLayout_43->addWidget(pushButton_updateFirmware_2);
+
+        pushButton_task1_pattern_2 = new QPushButton(verticalLayoutWidget_5);
+        pushButton_task1_pattern_2->setObjectName(QStringLiteral("pushButton_task1_pattern_2"));
+        pushButton_task1_pattern_2->setEnabled(true);
+
+        verticalLayout_43->addWidget(pushButton_task1_pattern_2);
+
+        pushButton_task1_pattern_3 = new QPushButton(verticalLayoutWidget_5);
+        pushButton_task1_pattern_3->setObjectName(QStringLiteral("pushButton_task1_pattern_3"));
+        pushButton_task1_pattern_3->setEnabled(true);
+
+        verticalLayout_43->addWidget(pushButton_task1_pattern_3);
+
+        pushButton_task1_pattern_4 = new QPushButton(verticalLayoutWidget_5);
+        pushButton_task1_pattern_4->setObjectName(QStringLiteral("pushButton_task1_pattern_4"));
+        pushButton_task1_pattern_4->setEnabled(true);
+
+        verticalLayout_43->addWidget(pushButton_task1_pattern_4);
+
+
+        horizontalLayout_37->addLayout(verticalLayout_43);
+
+        horizontalSpacer_18 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_37->addItem(horizontalSpacer_18);
+
+
+        verticalLayout_68->addLayout(horizontalLayout_37);
+
+        tabWidget_tasks->addTab(tab_paper, QString());
         tab_replicate = new QWidget();
         tab_replicate->setObjectName(QStringLiteral("tab_replicate"));
         verticalLayoutWidget = new QWidget(tab_replicate);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(10, 10, 1001, 238));
+        verticalLayoutWidget->setGeometry(QRect(10, 10, 1001, 330));
         verticalLayout_65 = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout_65->setSpacing(6);
         verticalLayout_65->setContentsMargins(11, 11, 11, 11);
@@ -4997,6 +5466,50 @@ public:
 
 
         verticalLayout_65->addLayout(horizontalLayout_71);
+
+        horizontalLayout_43 = new QHBoxLayout();
+        horizontalLayout_43->setSpacing(6);
+        horizontalLayout_43->setObjectName(QStringLiteral("horizontalLayout_43"));
+        horizontalSpacer_23 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_43->addItem(horizontalSpacer_23);
+
+        verticalLayout_45 = new QVBoxLayout();
+        verticalLayout_45->setSpacing(6);
+        verticalLayout_45->setObjectName(QStringLiteral("verticalLayout_45"));
+        pushButton_updateFirmware_3 = new QPushButton(verticalLayoutWidget);
+        pushButton_updateFirmware_3->setObjectName(QStringLiteral("pushButton_updateFirmware_3"));
+        pushButton_updateFirmware_3->setEnabled(true);
+
+        verticalLayout_45->addWidget(pushButton_updateFirmware_3);
+
+        pushButton_task1_pattern_5 = new QPushButton(verticalLayoutWidget);
+        pushButton_task1_pattern_5->setObjectName(QStringLiteral("pushButton_task1_pattern_5"));
+        pushButton_task1_pattern_5->setEnabled(true);
+
+        verticalLayout_45->addWidget(pushButton_task1_pattern_5);
+
+        pushButton_task1_pattern_6 = new QPushButton(verticalLayoutWidget);
+        pushButton_task1_pattern_6->setObjectName(QStringLiteral("pushButton_task1_pattern_6"));
+        pushButton_task1_pattern_6->setEnabled(true);
+
+        verticalLayout_45->addWidget(pushButton_task1_pattern_6);
+
+        pushButton_task1_pattern_7 = new QPushButton(verticalLayoutWidget);
+        pushButton_task1_pattern_7->setObjectName(QStringLiteral("pushButton_task1_pattern_7"));
+        pushButton_task1_pattern_7->setEnabled(true);
+
+        verticalLayout_45->addWidget(pushButton_task1_pattern_7);
+
+
+        horizontalLayout_43->addLayout(verticalLayout_45);
+
+        horizontalSpacer_24 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_43->addItem(horizontalSpacer_24);
+
+
+        verticalLayout_65->addLayout(horizontalLayout_43);
 
         tabWidget_tasks->addTab(tab_replicate, QString());
         tab_flash = new QWidget();
@@ -5398,6 +5911,12 @@ public:
 
         verticalLayout_66->addLayout(horizontalLayout_80);
 
+        pushButton_flashMakeFW = new QPushButton(tab_flash);
+        pushButton_flashMakeFW->setObjectName(QStringLiteral("pushButton_flashMakeFW"));
+        pushButton_flashMakeFW->setGeometry(QRect(40, 430, 131, 34));
+        pushButton_flashOpenDir = new QPushButton(tab_flash);
+        pushButton_flashOpenDir->setObjectName(QStringLiteral("pushButton_flashOpenDir"));
+        pushButton_flashOpenDir->setGeometry(QRect(30, 390, 131, 34));
         tabWidget_tasks->addTab(tab_flash, QString());
         tab_video = new QWidget();
         tab_video->setObjectName(QStringLiteral("tab_video"));
@@ -6680,6 +7199,44 @@ public:
         pushButton_statInfo->setText(QApplication::translate("MainWindow", "StatInfo", 0));
         pushButton_task2_firmware_make->setText(QApplication::translate("MainWindow", "Generate Firmware", 0));
         lineEdit_task2_FWtag->setText(QApplication::translate("MainWindow", "Enter Firmware Tag", 0));
+        label_39->setText(QApplication::translate("MainWindow", "Firmware: ", 0));
+        label_10->setText(QApplication::translate("MainWindow", "GreyCode", 0));
+        label_107->setText(QApplication::translate("MainWindow", "Mode: ", 0));
+        label_108->setText(QApplication::translate("MainWindow", "Pattern Sequence", 0));
+        label_109->setText(QApplication::translate("MainWindow", "Input: ", 0));
+        label_110->setText(QApplication::translate("MainWindow", "Flash Memory", 0));
+        label_111->setText(QApplication::translate("MainWindow", "Pattern Periode: ", 0));
+        label_112->setText(QApplication::translate("MainWindow", "235 us", 0));
+        label_11->setText(QApplication::translate("MainWindow", "Pattern Sequence: ", 0));
+        label_12->setText(QApplication::translate("MainWindow", "1x", 0));
+        label_13->setText(QApplication::translate("MainWindow", ";", 0));
+        label_repPap_3->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_4->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_5->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_6->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_7->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_8->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_9->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_23->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_24->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_25->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_26->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_27->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_28->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_29->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_30->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_31->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_32->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_33->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_34->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_repPap_35->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
+        label_14->setText(QApplication::translate("MainWindow", ";", 0));
+        label_15->setText(QApplication::translate("MainWindow", "20x", 0));
+        pushButton_updateFirmware_2->setText(QApplication::translate("MainWindow", "Upload Firmware", 0));
+        pushButton_task1_pattern_2->setText(QApplication::translate("MainWindow", "Apply Solution", 0));
+        pushButton_task1_pattern_3->setText(QApplication::translate("MainWindow", "Play", 0));
+        pushButton_task1_pattern_4->setText(QApplication::translate("MainWindow", "Refresh", 0));
+        tabWidget_tasks->setTabText(tabWidget_tasks->indexOf(tab_paper), QApplication::translate("MainWindow", "Paper", 0));
         label_32->setText(QApplication::translate("MainWindow", "Firmware: ", 0));
         label_4->setText(QApplication::translate("MainWindow", "GreyCode", 0));
         label_33->setText(QApplication::translate("MainWindow", "Mode: ", 0));
@@ -6713,6 +7270,10 @@ public:
         label_repPap_21->setStyleSheet(QApplication::translate("MainWindow", "border: 1px solid black;", 0));
         label_9->setText(QApplication::translate("MainWindow", ";", 0));
         label_7->setText(QApplication::translate("MainWindow", "20x", 0));
+        pushButton_updateFirmware_3->setText(QApplication::translate("MainWindow", "Upload Firmware", 0));
+        pushButton_task1_pattern_5->setText(QApplication::translate("MainWindow", "Apply Solution", 0));
+        pushButton_task1_pattern_6->setText(QApplication::translate("MainWindow", "Play", 0));
+        pushButton_task1_pattern_7->setText(QApplication::translate("MainWindow", "Refresh", 0));
         tabWidget_tasks->setTabText(tabWidget_tasks->indexOf(tab_replicate), QApplication::translate("MainWindow", "Replecate Paper", 0));
         radioButton_flashStatic->setText(QApplication::translate("MainWindow", "Static", 0));
         radioButton_flashDynamic->setText(QApplication::translate("MainWindow", "Dynamic", 0));
@@ -6725,12 +7286,14 @@ public:
         label_42->setText(QApplication::translate("MainWindow", "Input: ", 0));
         label_43->setText(QApplication::translate("MainWindow", "Flash Memory", 0));
         label_44->setText(QApplication::translate("MainWindow", "Pattern Periode: ", 0));
-        label_45->setText(QApplication::translate("MainWindow", "253 us", 0));
+        label_45->setText(QApplication::translate("MainWindow", "235 us", 0));
         label_46->setText(QApplication::translate("MainWindow", "Pattern Sequence: ", 0));
         label_47->setText(QApplication::translate("MainWindow", "1x", 0));
         label_48->setText(QApplication::translate("MainWindow", ";", 0));
         label_69->setText(QApplication::translate("MainWindow", ";", 0));
         label_70->setText(QApplication::translate("MainWindow", "20x", 0));
+        pushButton_flashMakeFW->setText(QApplication::translate("MainWindow", "Make Firmware", 0));
+        pushButton_flashOpenDir->setText(QApplication::translate("MainWindow", "Open Image Dir", 0));
         tabWidget_tasks->setTabText(tabWidget_tasks->indexOf(tab_flash), QApplication::translate("MainWindow", "Flash Memory Input", 0));
         label_72->setText(QApplication::translate("MainWindow", "Firmware: ", 0));
         label_73->setText(QApplication::translate("MainWindow", "GreyCode", 0));

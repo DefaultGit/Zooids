@@ -22,10 +22,10 @@ jsontemp = jsondecode(fileread(strcat(HOME,'path_config.json')));
 TARGET_PATH = (strcat(HOME,jsontemp.TrueColor));
 
 outputPicNumber = 0;
-
+im2bw();
 channelBit = 0;
 channelIndex = 1;
-channelOffset = [3,2,1]; %GRB
+channelOffset = [2,1,3]; %RGB == [1,2,3], GRB == [2,1,3]
 outputIndex = 1;
 outputPic = uint8(zeros(1140,912,3));
 files=0;

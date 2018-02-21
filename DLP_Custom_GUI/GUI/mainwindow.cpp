@@ -862,6 +862,30 @@ void MainWindow::setPixmaps(){
     ui ->label_repPap_21 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/20_B4.bmp"));
     ui ->label_repPap_22 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/21_B5.bmp"));
 
+    //Hardcoded for now, until JSON parser is implemented
+    ui ->label_pap_01 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/00_G0.bmp"));
+    ui ->label_pap_02 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/01_G1.bmp"));
+    ui ->label_pap_03 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/02_G2.bmp"));
+    ui ->label_pap_04 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/03_G3.bmp"));
+    ui ->label_pap_05 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/04_G4.bmp"));
+    ui ->label_pap_06 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/05_G5.bmp"));
+    ui ->label_pap_07 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/06_G6.bmp"));
+    ui ->label_pap_08 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/07_G7.bmp"));
+    ui ->label_pap_09 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/08_R0.bmp"));
+    ui ->label_pap_10 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/09_R1.bmp"));
+    ui ->label_pap_11 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/10_R2.bmp"));
+    ui ->label_pap_12 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/11_R3.bmp"));
+    ui ->label_pap_13 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/12_R4.bmp"));
+    ui ->label_pap_14 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/13_R5.bmp"));
+    ui ->label_pap_15 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/14_R6.bmp"));
+    ui ->label_pap_16 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/15_R7.bmp"));
+    ui ->label_pap_17 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/16_B0.bmp"));
+    ui ->label_pap_18 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/17_B1.bmp"));
+    ui ->label_pap_19 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/18_B2.bmp"));
+    ui ->label_pap_20 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/19_B3.bmp"));
+    ui ->label_pap_21 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/20_B4.bmp"));
+    ui ->label_pap_22 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/21_B5.bmp"));
+
 }
 
 void MainWindow::on_pushButton_statInfo_clicked()
