@@ -77,6 +77,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+/* ~~~~~ Additional Imports ~~~~~ */
+#include <iostream>
+#include <fstream>
+#include <QString>
+#include <QDesktopServices>
+#include "QPixmap.h"
+//
+
 
 FlashDevice g_FlashDevice;
 static int g_FrameIdx=0;
@@ -254,6 +262,13 @@ static int My_ImgeGet(void *Param, unsigned int X, unsigned int Y, \
     return 0;
 }
 
+/* ~~~~~ Additional Variables ~~~~~ */
+//ToDo Replace path variables with JSON config file
+const QString FIRMWARE_PATH = "../GUI/firmware/base.bin";
+const QString INI_PATH = "../GUI/ini/default.ini";
+const QString BMP_FOR_FW_PATH = "../GUI/bmp/bmp_for_fw.txt";
+const QString DEFAULT_FW_TAG = "Firmware Tag";
+//
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -264,8 +279,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Display GUI Version #
     char versionStr[255];
-    sprintf(versionStr, "DLP LightCrafter 4500 Control Software v%d.%d.%d [%s %s]", \
+    /* ~~~~~ Additional name change ~~~~~ */
+    sprintf(versionStr, "SwarmDescent DLP LightCrafter 4500 GUI v%d.%d.%d [%s %s]", \
             GUI_VERSION_MAJOR, GUI_VERSION_MINOR, GUI_VERSION_BUILD,__DATE__,__TIME__);
+    //
 
     setWindowTitle(versionStr);
 
@@ -410,6 +427,10 @@ MainWindow::MainWindow(QWidget *parent) :
     m_usbPollTimer->setInterval(2000);
     connect(m_usbPollTimer, SIGNAL(timeout()), this, SLOT(timerTimeout()));
     m_usbPollTimer->start();
+
+    /* ~~~~~ Additional Constructor changes ~~~~~ */
+    setPixmaps();
+    //
 }
 
 MainWindow::~MainWindow()
@@ -435,6 +456,263 @@ MainWindow::~MainWindow()
     
     delete ui;
 }
+
+/* ~~~~~ Adittional Functions ~~~~~ */
+/**
+ * @brief MainWindow::setPixmaps makes the images visible
+ */
+void MainWindow::setPixmaps(){
+    //QPixmap pixmapTarget = QPixmap(":/new/prefix1/Icons/dmd.jpg"); //Use images in ressoursec
+    // pixmapTarget = pixmapTarget.scaled(size-5, size-5, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    //Hardcoded for now, until JSON parser is implemented
+    ui ->label_repPap_01 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/00_G0.bmp"));
+    ui ->label_repPap_02 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/01_G1.bmp"));
+    ui ->label_repPap_03 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/02_G2.bmp"));
+    ui ->label_repPap_04 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/03_G3.bmp"));
+    ui ->label_repPap_05 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/04_G4.bmp"));
+    ui ->label_repPap_06 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/05_G5.bmp"));
+    ui ->label_repPap_07 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/06_G6.bmp"));
+    ui ->label_repPap_08 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/07_G7.bmp"));
+    ui ->label_repPap_09 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/08_R0.bmp"));
+    ui ->label_repPap_10 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/09_R1.bmp"));
+    ui ->label_repPap_11 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/10_R2.bmp"));
+    ui ->label_repPap_12 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/11_R3.bmp"));
+    ui ->label_repPap_13 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/12_R4.bmp"));
+    ui ->label_repPap_14 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/13_R5.bmp"));
+    ui ->label_repPap_15 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/14_R6.bmp"));
+    ui ->label_repPap_16 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/15_R7.bmp"));
+    ui ->label_repPap_17 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/16_B0.bmp"));
+    ui ->label_repPap_18 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/17_B1.bmp"));
+    ui ->label_repPap_19 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/18_B2.bmp"));
+    ui ->label_repPap_20 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/19_B3.bmp"));
+    ui ->label_repPap_21 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/20_B4.bmp"));
+    ui ->label_repPap_22 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/21_B5.bmp"));
+
+    //Hardcoded for now, until JSON parser is implemented
+    ui ->label_pap_01 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/00_G0.bmp"));
+    ui ->label_pap_02 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/01_G1.bmp"));
+    ui ->label_pap_03 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/02_G2.bmp"));
+    ui ->label_pap_04 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/03_G3.bmp"));
+    ui ->label_pap_05 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/04_G4.bmp"));
+    ui ->label_pap_06 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/05_G5.bmp"));
+    ui ->label_pap_07 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/06_G6.bmp"));
+    ui ->label_pap_08 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/07_G7.bmp"));
+    ui ->label_pap_09 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/08_R0.bmp"));
+    ui ->label_pap_10 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/09_R1.bmp"));
+    ui ->label_pap_11 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/10_R2.bmp"));
+    ui ->label_pap_12 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/11_R3.bmp"));
+    ui ->label_pap_13 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/12_R4.bmp"));
+    ui ->label_pap_14 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/13_R5.bmp"));
+    ui ->label_pap_15 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/14_R6.bmp"));
+    ui ->label_pap_16 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/15_R7.bmp"));
+    ui ->label_pap_17 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/16_B0.bmp"));
+    ui ->label_pap_18 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/17_B1.bmp"));
+    ui ->label_pap_19 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/18_B2.bmp"));
+    ui ->label_pap_20 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/19_B3.bmp"));
+    ui ->label_pap_21 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/20_B4.bmp"));
+    ui ->label_pap_22 -> setPixmap(QPixmap("D:/Zooids/DLP_Custom_GUI/GUI/images/GreyCode/21_B5.bmp"));
+}
+
+/**
+ * @brief MainWindow::on_pushButton_statInfo_clicked is mostly used for debugging/ testing
+ */
+void MainWindow::on_pushButton_statInfo_clicked()
+{
+    QString status = "0";
+    if (GetDLPC350Status() == -1){
+        status = "-1";
+    }
+    if (status.isNull()){
+        status = "null";
+    }
+
+    ui ->label_SD_statInfo ->setText(status);
+}
+
+/**
+ * @brief MainWindow::on_radioButton_flashStatic_clicked changes the descriptional text
+ */
+void MainWindow::on_radioButton_flashStatic_clicked(){
+    ui->label_flashFWName->setText("FlashStatic");
+    ui->label_flashDescription->setText("Image 1 and 2 in Flash prejected (in order) at max speed");
+}
+
+/**
+ * @brief MainWindow::on_radioButton_flashStatic_clicked changes the descriptional text
+ */
+void MainWindow::on_radioButton_flashDynamic_clicked(){
+    ui->label_flashFWName->setText("FlashDynamic");
+    ui->label_flashDescription->setText("Custom patterns and custom sequence");
+}
+
+void MainWindow::on_pushButton_SD_updateFirmware_clicked()
+{
+    /*
+    int imageFirmwarePage = 3;
+    int firmwareUploadPage = 2;
+    int customWindowIndex = 5;
+
+    emit on_pushButton_task1_pattern_clicked();
+*/
+    QDesktopServices::openUrl( QUrl::fromLocalFile("../GUI/"));
+    /*
+    ui ->label_task1 ->setText("Button pressed");
+    if (ui->radioButton_SLMode->isDown() == false){
+        ui ->radioButton_SLMode ->click();
+    }
+    */
+
+    //ui ->tabWidget->setCurrentIndex(customWindowIndex);
+/*
+    QString fileName;
+
+    fileName = "D:/Zooids/DLP_Custom_GUI/GUI/firmware/zooids_firmware.bin";
+
+    ui -> label_SD_statInfo ->setText(fileName);
+
+    ui->pushButton_FWUpload->setEnabled(false);
+
+    ui ->tabWidget->setCurrentIndex(imageFirmwarePage);
+    ui ->tabWidget_3->setCurrentIndex(firmwareUploadPage);
+
+    if(!fileName.isEmpty())
+    {
+        ui->FirmwareFile_2->setText(fileName);
+        QFileInfo firmwareFileInfo;
+        firmwareFileInfo.setFile(fileName);
+        m_firmwarePath = firmwareFileInfo.absolutePath();
+    }
+
+    ui-> checkBox_SkipBootLoader ->setChecked(true);
+    ui-> checkBox_FastFlashUpdate ->setChecked(false);
+
+    ui->pushButton_FWUpload->setEnabled(true);
+    ui -> pushButton_FWUpload ->click();
+    //ui->pushButton_FWUpload->setEnabled(false);
+    */
+}
+
+void MainWindow::on_pushButton_SD_builtFirmware_clicked()
+{
+
+    QString allFiles = "";
+
+    //Reads the tag that will be assigned to the firmware
+    const QString tagName = ui ->lineEdit_task2_FWtag ->text();
+    //Selects the default Firmware to add images to
+    FWSelectFWBin_task2(FIRMWARE_PATH);
+    //Select default ini file for firmware
+    FWSelectIniFile(INI_PATH);
+
+    //If the tag is not the default lineEdit text, set it to the firmware tag
+    if (QString::compare(tagName, DEFAULT_FW_TAG, Qt::CaseInsensitive) != 0){
+        ui ->lineEdit_firmwareTagName ->setText(tagName);
+    }
+
+    QString* bmpArr = getBMPs();
+
+    //ui ->lineEdit_task2_FWtag ->setText(*(bmpArr));
+    /*
+    QString path = BMP_FOR_FW_PATH.section("/", 1, -2);
+    QString fileExtension = ".bmp";
+    QString currentImage;
+
+    for (int i = 0; i < MAX_SPLASH_IMAGES; i++){
+        //allFiles = allFiles.append(*bmpArr+i);
+        currentImage = path + *(bmpArr + i) + fileExtension;
+        allFiles = allFiles.append(currentImage);
+        allFiles = allFiles.append("; ");
+        //FWAddSplashImage(currentImage);
+    }
+
+
+    //QString allFiles =
+
+    //ui ->lineEdit_task2_FWtag ->setText(*bmpArr);
+    ui ->lineEdit_task2_FWtag ->setText((allFiles));
+    */
+}
+//Different to SetDLPC350InPatternMode()?
+void MainWindow::change_to_pattern_mode()
+{
+    // Define (Sub)Page Numbers
+    int setStartStopSubPage = 2;
+    int patternSeqPage = 1;
+    int seqSettingsSubPage = 0;
+
+    // Boolean states of the Radio Buttons
+    bool inStandbyMode = ui ->radioButton_StandbyMode ->isChecked();
+    bool alreadyPressed = ui ->radioButton_SLMode ->isChecked();
+    bool inPatMode = ui->radioButton_SLMode->isChecked();
+    bool seqAbort = ui->indicatorButton_statusSeqAbort->isEnabled();
+
+    ui ->label_SD_statInfo->setText("Button pressed");
+
+    if ((!alreadyPressed) && (!inStandbyMode)){
+        //emit on_radioButton_SLMode_clicked(); //Doesnt actually changes the Button-state
+        ui ->label_SD_statInfo ->setText("Changing to Pattern Sequence Mode");
+        ui ->radioButton_SLMode ->click();
+    }
+
+    //ui->tabWidget->setCurrentIndex(1);
+    /*
+     * not working
+     * while ((!inPatMode || seqAbort) && !cancelTask1){
+        ui ->label_SD_statInfo ->setText("Waiting for entering Pattern Sequence Mode");
+    }*/
+
+    applySolution_task1(); //makes screen a weird color, but works more reliably then applying the solution from video mode. Applying it from video mode fails more often then it works
+    ui ->label_SD_statInfo ->setText("Applying Solution");
+
+    ui ->pushButton_PatSeqSendLUT ->click();// Send the pattern from the .ini file to get validated and uploaded
+    ui ->pushButton_ValidatePatSeq ->click();// Validate Sequence
+
+    while (!(ui->pushButton_PatSeqCtrlStart ->isEnabled()) && inPatMode){
+        ui ->label_SD_statInfo ->setText("Waiting for sequence confirmation");
+    }
+
+    ui ->pushButton_PatSeqCtrlStart ->click();// Start Sequence
+    ui ->label_SD_statInfo ->setText("Sequence started");
+}
+
+QString* MainWindow::getBMPs(){
+    QString path = BMP_FOR_FW_PATH.left(BMP_FOR_FW_PATH.lastIndexOf("/") + 1);
+    QString fileExtension = ".bmp";
+    QString line[MAX_SPLASH_IMAGES];
+    QString sep = "/";
+    QString fileName = BMP_FOR_FW_PATH.section(sep,-1,-1);
+    ui ->label_SD_statInfo ->setText(fileName);
+
+    QString allFiles = "";
+
+    QFile inputFile(BMP_FOR_FW_PATH);
+    if (inputFile.open(QIODevice::ReadOnly))
+    {
+       QTextStream in(&inputFile);
+       int lineNum = 0;
+       while (!in.atEnd())
+       {
+           if (lineNum < MAX_SPLASH_IMAGES){
+               line[lineNum] = in.readLine();
+               ui ->lineEdit_task2_FWtag ->setText(path);
+
+               allFiles.append(line[lineNum]);
+               FWAddSplashImage(path + line[lineNum] + fileExtension);
+           }
+           ui ->lineEdit_task2_FWtag ->setText(QString::number(lineNum));
+           lineNum ++;
+       }
+       inputFile.close();
+    }
+
+    ui ->lineEdit_task2_FWtag ->setText(path);
+    QString* arrayPointer=line;
+
+    return arrayPointer;
+}
+
+//-------------------//
 
 void MainWindow::ShowError(const char *str)
 {
@@ -636,7 +914,6 @@ void MainWindow::SetDLPC350InPatternMode()
 
     return;
 }
-
 
 void MainWindow::timerTimeout(void)
 {
@@ -842,6 +1119,7 @@ void MainWindow::on_radioButton_VideoMode_clicked()
         ui->radioButton_SLMode->setEnabled(true);
         ui->radioButton_VariableExpSLMode->setEnabled(true);
 
+        //Original:
         //Wakeup from standby
         //Bug? - Response fails for DLPC350_SetPowerMode command
         DLPC350_SetPowerMode(0);
@@ -880,7 +1158,7 @@ void MainWindow::on_radioButton_VideoMode_clicked()
     ui->pushButton_PatSeqCtrlStop->setEnabled(false);
 
     // Select the video mode tab
-    ui->tabWidget->setCurrentIndex(0);
+    //ui->tabWidget->setCurrentIndex(0); /* Additional Change; Don't change Tab when Mode is changed */
 
     //Refresh the GUI settings
     RefreshGUISettingsFromDLPC350();
@@ -894,9 +1172,9 @@ void MainWindow::on_radioButton_SLMode_clicked()
 
     SetDLPC350InPatternMode();
 
-    // Select the video mode tab
-    ui->tabWidget->setCurrentIndex(1);
-    ui->tabWidget_2->setCurrentIndex(0);
+    // Select the tab /* Additionally, correct the original comment */
+    //ui->tabWidget->setCurrentIndex(1); /* Additional Change; Don't change Tab when Mode is changed */
+    //ui->tabWidget_2->setCurrentIndex(0);
 
     //Update all the settings under the page
     if(DLPC350_GetPatternTriggerMode(&trigMode) == 0)
@@ -934,8 +1212,8 @@ void MainWindow::on_radioButton_VariableExpSLMode_clicked()
     SetDLPC350InPatternMode();
 
     // Select the variable exposure tab
-    ui->tabWidget->setCurrentIndex(1);
-    ui->tabWidget_2->setCurrentIndex(1);
+    //ui->tabWidget->setCurrentIndex(1); /* Additional Change; Don't change Tab when Mode is changed */
+    //ui->tabWidget_2->setCurrentIndex(1);
 
     //Update all the settings under the page
     if(DLPC350_GetPatternTriggerMode(&trigMode) == 0)
